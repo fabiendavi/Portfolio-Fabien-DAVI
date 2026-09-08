@@ -11,8 +11,8 @@
         :root {
             --bg-sidebar: #2b1f1a;
             --text-sidebar: #ffffff;
-            --bg-main: #f9f8f6;       /* Gris très clair (fond par défaut) */
-            --bg-alt: #ffffff;        /* Blanc (pour alterner) */
+            --bg-main: #f9f8f6;
+            --bg-alt: #ffffff;
             --accent-color: #e67e22;
             --text-main: #333333;
             --card-bg: #ffffff;
@@ -55,7 +55,6 @@
             overflow: hidden;
             border: 3px solid #555;
         }
-        /* Style pour la future photo */
         .profile-pic img {
             width: 100%;
             height: 100%;
@@ -105,16 +104,14 @@
             width: calc(100% - 260px);
         }
         
-        /* Les sections prennent toute la largeur pour alterner les couleurs de fond */
         section {
             padding: 5rem 0;
-            text-align: left; /* Assure que le texte reste aligné à gauche à partir du profil */
+            text-align: left;
         }
         .bg-alt {
             background-color: var(--bg-alt);
         }
         
-        /* Conteneur pour centrer et limiter la largeur du contenu dans les sections */
         .container {
             max-width: 1000px;
             margin: 0 auto;
@@ -138,7 +135,7 @@
             background-color: var(--accent-color);
         }
 
-        /* --- EN-TÊTE / HERO (Taille normale et Centré) --- */
+        /* --- EN-TÊTE / HERO --- */
         .hero {
             text-align: center;
             padding: 6rem 2rem;
@@ -214,7 +211,7 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
 
-        /* --- PARCOURS (FRISE CHRONOLOGIQUE CENTRÉE) --- */
+        /* --- PARCOURS --- */
         .timeline {
             position: relative;
             max-width: 900px;
@@ -386,7 +383,7 @@
         .project-img {
             width: 100%;
             height: 180px;
-            background-color: #ffffff; /* Fond blanc si l'image est transparente */
+            background-color: #ffffff; 
             display: flex;
             align-items: center;
             justify-content: center;
@@ -396,7 +393,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center; /* Permet de bien centrer ce visuel de réseau */
+            object-position: center; 
         }
         .project-content {
             padding: 1.5rem;
@@ -551,7 +548,6 @@
     <!-- NAVIGATION / SIDEBAR -->
     <aside class="sidebar">
         <div class="profile-pic">
-            <!-- Remplacez "photo.jpg" par le nom exact de votre image une fois importée sur GitHub -->
             <img src="photo.jpg" alt="Photo de profil" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
             <span style="display:none;">[Espace<br>Photo]</span>
         </div>
@@ -578,8 +574,6 @@
                 <h2>Étudiant en informatique - Systèmes et Réseaux <br> 1ère année BTS SIO &bull; Option SISR</h2>
                 <div class="hero-buttons">
                     <a href="#projets" class="btn btn-primary">Mes Projets</a>
-                    <!-- L'attribut "download" permet de forcer le téléchargement du fichier -->
-                    <!-- Remplacez "mon-cv.pdf" par le nom exact de votre CV sur GitHub -->
                     <a href="mon-cv.pdf" download class="btn">Voir mon CV</a>
                     <a href="#contact" class="btn">Me contacter</a>
                 </div>
@@ -785,7 +779,8 @@
                     <div class="projects-grid">
                         <div class="project-card">
                             <div class="project-img">
-                                <img src="Twitter-LKN-1200x630-1.jpg" alt="Illustration Gestion du parc d'une médiathèque">
+                                <!-- Ligne corrigée avec .png -->
+                                <img src="Twitter-LKN-1200x630-1.png" alt="Illustration Gestion du parc d'une médiathèque">
                             </div>
                             <div class="project-content">
                                 <div class="project-date">2027 - à venir</div>
