@@ -11,8 +11,7 @@
         :root {
             --bg-sidebar: #2b1f1a;
             --text-sidebar: #ffffff;
-            --bg-main: #f9f8f6;       /* Gris très clair (fond par défaut) */
-            --bg-alt: #ffffff;        /* Blanc (pour alterner) */
+            --bg-main: #f9f8f6;
             --accent-color: #e67e22;
             --text-main: #333333;
             --card-bg: #ffffff;
@@ -55,7 +54,6 @@
             overflow: hidden;
             border: 3px solid #555;
         }
-        /* Style pour la future photo */
         .profile-pic img {
             width: 100%;
             height: 100%;
@@ -67,7 +65,7 @@
             text-align: center;
         }
         .sidebar h1 {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             text-align: center;
             margin-bottom: 0.5rem;
         }
@@ -102,22 +100,20 @@
         /* --- CONTENU PRINCIPAL --- */
         .main-content {
             margin-left: 260px;
+            padding: 3rem 4rem;
             width: calc(100% - 260px);
         }
-        
-        /* Les sections prennent toute la largeur pour alterner les couleurs de fond */
         section {
-            padding: 5rem 0;
-        }
-        .bg-alt {
-            background-color: var(--bg-alt);
+            margin-bottom: 5rem;
         }
         
-        /* Conteneur pour centrer et limiter la largeur du contenu dans les sections */
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 2rem;
+        /* Classe pour différencier les rubriques avec un fond blanc */
+        .section-box {
+            background-color: var(--card-bg);
+            padding: 2.5rem 3rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border: 1px solid #f0f0f0;
         }
 
         h2.section-title {
@@ -137,41 +133,29 @@
             background-color: var(--accent-color);
         }
 
-        /* --- EN-TÊTE / HERO (Centré) --- */
+        /* --- EN-TÊTE / HERO (Taille normale, centré) --- */
         .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
             text-align: center;
-            padding: 2rem;
-        }
-        .hero .sur-titre {
-            color: var(--accent-color);
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 1rem;
-            font-weight: bold;
+            margin-bottom: 5rem;
+            padding: 2rem 0;
         }
         .hero h1 {
             font-size: 3.5rem;
+            margin-bottom: 0.5rem;
             color: var(--bg-sidebar);
-            margin-bottom: 1rem;
         }
         .hero h2 {
-            font-size: 1.3rem;
-            color: #555;
-            margin-bottom: 2.5rem;
-            font-weight: 400;
+            font-size: 1.4rem;
+            color: #666;
+            margin-bottom: 2rem;
+            font-weight: normal;
             line-height: 1.5;
         }
         .hero-buttons {
             display: flex;
+            justify-content: center;
             gap: 15px;
             flex-wrap: wrap;
-            justify-content: center;
         }
         .btn {
             display: inline-block;
@@ -252,7 +236,7 @@
             width: 20px;
             height: 20px;
             background-color: var(--accent-color);
-            border: 4px solid var(--bg-alt); /* Couleur de fond de la section */
+            border: 4px solid var(--bg-main);
             border-radius: 50%;
             top: 20px;
             z-index: 1;
@@ -267,7 +251,7 @@
             padding: 1.5rem;
             background-color: var(--card-bg);
             border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
             position: relative;
             border: 1px solid #f0f0f0;
         }
@@ -325,7 +309,7 @@
             justify-content: center;
         }
         .skill-box {
-            background-color: var(--card-bg);
+            background-color: #fcfcfc;
             border: 1px solid #eee;
             padding: 1.5rem 1rem;
             border-radius: 8px;
@@ -450,10 +434,9 @@
             gap: 1rem;
         }
         .contact-card {
-            background-color: var(--card-bg);
+            background-color: var(--bg-main);
             padding: 1.2rem 1.5rem;
             border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
             display: flex;
             align-items: center;
             gap: 15px;
@@ -472,10 +455,9 @@
         }
         .contact-form {
             flex: 2;
-            background-color: var(--card-bg);
+            background-color: var(--bg-main);
             padding: 2.5rem;
             border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             border: 1px solid #eee;
         }
         .form-group {
@@ -520,14 +502,11 @@
                 height: auto;
                 position: relative;
                 padding: 1rem;
-                z-index: 10;
             }
             .main-content {
                 margin-left: 0;
                 width: 100%;
-            }
-            section {
-                padding: 4rem 0;
+                padding: 2rem 1.5rem;
             }
             .profil-container, .contact-container {
                 flex-direction: column;
@@ -554,7 +533,7 @@
     <!-- NAVIGATION / SIDEBAR -->
     <aside class="sidebar">
         <div class="profile-pic">
-            <!-- Remplacez "photo.jpg" par le nom exact de votre image une fois importée sur GitHub -->
+            <!-- Remplacez "photo.jpg" par le nom exact de votre image sur GitHub -->
             <img src="photo.jpg" alt="Photo de profil" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
             <span style="display:none;">[Espace<br>Photo]</span>
         </div>
@@ -574,242 +553,225 @@
     <main class="main-content">
 
         <!-- ACCUEIL -->
-        <section id="accueil" class="hero bg-alt">
-            <div class="container">
-                <div class="sur-titre">Portfolio</div>
-                <h1>Fabien DAVI</h1>
-                <h2>Étudiant en informatique - Systèmes et Réseaux <br> 1ère année BTS SIO . Option SISR</h2>
-                <div class="hero-buttons">
-                    <a href="#projets" class="btn btn-primary">Mes Projets</a>
-                    <!-- L'attribut "download" permet de forcer le téléchargement du fichier -->
-                    <!-- Remplacez "mon-cv.pdf" par le nom exact de votre CV sur GitHub -->
-                    <a href="mon-cv.pdf" download class="btn">Voir mon CV</a>
-                    <a href="#contact" class="btn">Me contacter</a>
-                </div>
+        <section id="accueil" class="hero">
+            <h2>Portfolio</h2>
+            <h1>Fabien DAVI</h1>
+            <h2>Étudiant en informatique - Systèmes et Réseaux <br> 1ère année BTS SIO . Option SISR</h2>
+            <div class="hero-buttons">
+                <a href="#projets" class="btn btn-primary">Mes Projets</a>
+                <!-- Remplacez "mon-cv.pdf" par le nom de votre fichier PDF sur GitHub -->
+                <a href="mon-cv.pdf" download class="btn">Voir mon CV</a>
+                <a href="#contact" class="btn">Me contacter</a>
             </div>
         </section>
 
         <!-- PROFIL -->
-        <section id="profil">
-            <div class="container">
-                <h2 class="section-title">Profil</h2>
-                <div class="profil-container">
-                    <div class="profil-text">
-                        <p>[Insérez votre paragraphe de présentation ici. Vous pourrez le modifier plus tard.]</p>
-                    </div>
-                    <div class="stage-box">
-                        <p>Je suis actuellement à la recherche d'un stage de <strong>4 à 5 semaines</strong> dans les domaines des systèmes et réseaux à réaliser entre <strong>mai et août 2027</strong>.</p>
-                    </div>
+        <section id="profil" class="section-box">
+            <h2 class="section-title">Profil</h2>
+            <div class="profil-container">
+                <div class="profil-text">
+                    <p>[Insérez votre paragraphe de présentation ici. Vous pourrez le modifier plus tard.]</p>
+                </div>
+                <div class="stage-box">
+                    <p>Je suis actuellement à la recherche d'un stage de <strong>4 à 5 semaines</strong> dans les domaines des systèmes et réseaux à réaliser entre <strong>mai et août 2027</strong>.</p>
                 </div>
             </div>
         </section>
 
-        <!-- PARCOURS (Fond blanc) -->
-        <section id="parcours" class="bg-alt">
-            <div class="container">
-                <h2 class="section-title">Parcours</h2>
+        <!-- PARCOURS -->
+        <section id="parcours">
+            <h2 class="section-title">Parcours</h2>
+            
+            <div class="timeline">
                 
-                <div class="timeline">
-                    <!-- 1. Plus récent : BTS SIO -->
-                    <div class="timeline-item left">
-                        <div class="timeline-content">
-                            <span class="timeline-date">Sept 2026 - Auj</span>
-                            <h3>BTS SIO SISR</h3>
-                            <h4>[Lycée / École à préciser]</h4>
-                            <p>[Espace de description pour cette formation que j'écrirai plus tard]</p>
-                        </div>
-                    </div>
-
-                    <!-- 2. Chargé d'enquête -->
-                    <div class="timeline-item right">
-                        <div class="timeline-content">
-                            <span class="timeline-date">2025 — 2026</span>
-                            <h3>Chargé d’Enquête</h3>
-                            <h4>Enquête Ecole en partenariat avec La Mêlée - Toulouse, France</h4>
-                            <ul>
-                                <li>Mise en place d’un questionnaire en fonction des besoins du commanditaire</li>
-                                <li>Diffusion du questionnaire</li>
-                                <li>Traitement et analyse statistiques des résultats</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- 3. Master -->
-                    <div class="timeline-item left">
-                        <div class="timeline-content">
-                            <span class="timeline-date">Sept 2024 - Juin 2026</span>
-                            <h3>Master de Sociologie - Parcours Réseaux et Sociétés</h3>
-                            <h4>Université Toulouse 2 Jean-Jaurès - Toulouse</h4>
-                            <p>[Espace de description pour cette formation]</p>
-                        </div>
-                    </div>
-
-                    <!-- 4. Bénévole Chorale -->
-                    <div class="timeline-item right">
-                        <div class="timeline-content">
-                            <span class="timeline-date">2023 — présent</span>
-                            <h3>Bénévole</h3>
-                            <h4>Chorale Les troubadours Bagnacois - Bagnac-sur-Célé, France</h4>
-                            <ul>
-                                <li>Création du logo et des supports visuels de la chorale</li>
-                                <li>Gestion des réservations via fichiers Excel dédiés (suivi, contrôles, synthèses)</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- 5. Licence -->
-                    <div class="timeline-item left">
-                        <div class="timeline-content">
-                            <span class="timeline-date">Sept 2021 - Juin 2024</span>
-                            <h3>Licence de Sociologie</h3>
-                            <h4>Université Toulouse 2 Jean-Jaurès - Toulouse</h4>
-                            <p>[Espace de description pour cette formation]</p>
-                        </div>
-                    </div>
-
-                    <!-- 6. BTS Audiovisuel -->
-                    <div class="timeline-item right">
-                        <div class="timeline-content">
-                            <span class="timeline-date">Sept 2020 - Juin 2021</span>
-                            <h3>BTS Audiovisuel – Option Montage et post-production</h3>
-                            <h4>Lycée des Arènes - Toulouse</h4>
-                            <p>[Espace de description pour cette formation]</p>
-                        </div>
-                    </div>
-
-                    <!-- 7. Bac L -->
-                    <div class="timeline-item left">
-                        <div class="timeline-content">
-                            <span class="timeline-date">Juin 2020</span>
-                            <h3>BAC L - Option Anglais Approfondi</h3>
-                            <h4>Lycée La Découverte - Decazeville</h4>
-                            <p>[Espace de description pour cette formation]</p>
-                        </div>
-                    </div>
-
-                    <!-- 8. Plus ancien : Ecole de musique -->
-                    <div class="timeline-item right">
-                        <div class="timeline-content">
-                            <span class="timeline-date">2018 — présent</span>
-                            <h3>Bénévole</h3>
-                            <h4>Ecole de musique Zik’mineur - Livinhac-le-Haut, France</h4>
-                            <ul>
-                                <li>Organisation d’évènements (concerts, auditions) et gestion logistique</li>
-                                <li>Mise à jour et structuration de fichiers internes (plannings, inventaires)</li>
-                                <li>Rangement et gestion du matériel musical</li>
-                                <li>Création d’affiches et supports de communication</li>
-                            </ul>
-                        </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Sept 2026 - Auj</span>
+                        <h3>BTS SIO SISR</h3>
+                        <h4>[Lycée / École à préciser]</h4>
+                        <p>[Espace de description pour cette formation que j'écrirai plus tard]</p>
                     </div>
                 </div>
+
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <span class="timeline-date">2025 — 2026</span>
+                        <h3>Chargé d’Enquête</h3>
+                        <h4>Enquête Ecole en partenariat avec La Mêlée - Toulouse, France</h4>
+                        <ul>
+                            <li>Mise en place d’un questionnaire en fonction des besoins du commanditaire</li>
+                            <li>Diffusion du questionnaire</li>
+                            <li>Traitement et analyse statistiques des résultats</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Sept 2024 - Juin 2026</span>
+                        <h3>Master de Sociologie - Parcours Réseaux et Sociétés</h3>
+                        <h4>Université Toulouse 2 Jean-Jaurès - Toulouse</h4>
+                        <p>[Espace de description pour cette formation]</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <span class="timeline-date">2023 — présent</span>
+                        <h3>Bénévole</h3>
+                        <h4>Chorale Les troubadours Bagnacois - Bagnac-sur-Célé, France</h4>
+                        <ul>
+                            <li>Création du logo et des supports visuels de la chorale</li>
+                            <li>Gestion des réservations via fichiers Excel dédiés (suivi, contrôles, synthèses)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Sept 2021 - Juin 2024</span>
+                        <h3>Licence de Sociologie</h3>
+                        <h4>Université Toulouse 2 Jean-Jaurès - Toulouse</h4>
+                        <p>[Espace de description pour cette formation]</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Sept 2020 - Juin 2021</span>
+                        <h3>BTS Audiovisuel – Option Montage et post-production</h3>
+                        <h4>Lycée des Arènes - Toulouse</h4>
+                        <p>[Espace de description pour cette formation]</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Juin 2020</span>
+                        <h3>BAC L - Option Anglais Approfondi</h3>
+                        <h4>Lycée La Découverte - Decazeville</h4>
+                        <p>[Espace de description pour cette formation]</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <span class="timeline-date">2018 — présent</span>
+                        <h3>Bénévole</h3>
+                        <h4>Ecole de musique Zik’mineur - Livinhac-le-Haut, France</h4>
+                        <ul>
+                            <li>Organisation d’évènements (concerts, auditions) et gestion logistique</li>
+                            <li>Mise à jour et structuration de fichiers internes (plannings, inventaires)</li>
+                            <li>Rangement et gestion du matériel musical</li>
+                            <li>Création d’affiches et supports de communication</li>
+                        </ul>
+                    </div>
+                </div>
+
             </div>
         </section>
 
         <!-- COMPÉTENCES -->
-        <section id="competences">
-            <div class="container">
-                <h2 class="section-title">Compétences</h2>
-                <div class="skills-grid">
-                    
-                    <div class="skill-category">
-                        <h3>Systèmes d'exploitation</h3>
-                        <div class="skill-box-container">
-                            <div class="skill-box">
-                                <img src="Logo_Windows_11.webp" alt="Windows 11">
-                                <span>Windows 11</span>
-                            </div>
-                            <div class="skill-box">
-                                <img src="debian-linux.png" alt="Debian">
-                                <span>Debian</span>
-                            </div>
+        <section id="competences" class="section-box">
+            <h2 class="section-title">Compétences</h2>
+            <div class="skills-grid">
+                
+                <div class="skill-category">
+                    <h3>Systèmes d'exploitation</h3>
+                    <div class="skill-box-container">
+                        <div class="skill-box">
+                            <img src="Logo_Windows_11.webp" alt="Windows 11">
+                            <span>Windows 11</span>
+                        </div>
+                        <div class="skill-box">
+                            <img src="debian-linux.png" alt="Debian">
+                            <span>Debian</span>
                         </div>
                     </div>
-
-                    <div class="skill-category">
-                        <h3>Services & Administration</h3>
-                        <div class="skill-box-container">
-                            <div class="skill-box">
-                                <img src="e5b7d4_ad393bb356954725b5ba9fa6a0454968~mv2.png" alt="OCS Inventory">
-                                <span>OCS Inventory</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="skill-category">
-                        <h3>Outils & Virtualisation</h3>
-                        <div class="skill-box-container">
-                            <div class="skill-box">
-                                <img src="virtualbox.png" alt="VirtualBox">
-                                <span>VirtualBox</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="skill-category">
-                        <h3>Réseaux et infrastructures</h3>
-                        <div class="skill-box-container">
-                            <div class="skill-empty">
-                                Cette section sera complétée prochainement.
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
+
+                <div class="skill-category">
+                    <h3>Services & Administration</h3>
+                    <div class="skill-box-container">
+                        <div class="skill-box">
+                            <img src="e5b7d4_ad393bb356954725b5ba9fa6a0454968~mv2.png" alt="OCS Inventory">
+                            <span>OCS Inventory</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Outils & Virtualisation</h3>
+                    <div class="skill-box-container">
+                        <div class="skill-box">
+                            <img src="virtualbox.png" alt="VirtualBox">
+                            <span>VirtualBox</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Réseaux et infrastructures</h3>
+                    <div class="skill-box-container">
+                        <div class="skill-empty">
+                            Cette section sera complétée prochainement.
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
-        <!-- PROJETS (Fond blanc) -->
-        <section id="projets" class="bg-alt">
-            <div class="container">
-                <h2 class="section-title">Projets</h2>
+        <!-- PROJETS -->
+        <section id="projets">
+            <h2 class="section-title">Projets</h2>
 
-                <div class="project-section">
-                    <h3>Projets scolaires</h3>
-                    <div class="projects-grid">
-                        <div class="project-card">
-                            <div class="project-img">
-                                <img src="maintenance_parc_informatique.png" alt="Illustration Gérer le patrimoine informatique">
-                            </div>
-                            <div class="project-content">
-                                <div class="project-date">2026 - réalisé</div>
-                                <h4>Gérer le patrimoine informatique</h4>
-                                <p>Inventaire matériel et logiciel d'une organisation. Création de groupes statiques et dynamiques. Configuration de partage de fichiers et de niveaux d'habilitation.</p>
-                                <div class="tags">
-                                    <span class="tag">OCS Inventory</span>
-                                    <span class="tag">VirtualBox</span>
-                                </div>
+            <div class="project-section">
+                <h3>Projets scolaires</h3>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <img src="maintenance_parc_informatique.png" alt="Illustration Gérer le patrimoine informatique">
+                        </div>
+                        <div class="project-content">
+                            <div class="project-date">2026 - réalisé</div>
+                            <h4>Gérer le patrimoine informatique</h4>
+                            <p>Inventaire matériel et logiciel d'une organisation. Création de groupes statiques et dynamiques. Configuration de partage de fichiers et de niveaux d'habilitation.</p>
+                            <div class="tags">
+                                <span class="tag">OCS Inventory</span>
+                                <span class="tag">VirtualBox</span>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="project-section">
-                    <h3>Projets professionnels</h3>
-                    <div class="projects-grid">
-                        <div class="project-card">
-                            <div class="project-img">
-                                <span style="color: #888; font-size: 0.9rem;">[Image d'illustration]</span>
-                            </div>
-                            <div class="project-content">
-                                <div class="project-date">2027 - à venir</div>
-                                <h4>[Titre du projet pro 1]</h4>
-                                <p>[Description à ajouter plus tard...]</p>
-                                <div class="tags">
-                                    <span class="tag">???</span>
-                                </div>
+            <div class="project-section">
+                <h3>Projets professionnels</h3>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <span style="color: #888; font-size: 0.9rem;">[Image d'illustration]</span>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-date">2027 - à venir</div>
+                            <h4>[Titre du projet pro 1]</h4>
+                            <p>[Description à ajouter plus tard...]</p>
+                            <div class="tags">
+                                <span class="tag">???</span>
                             </div>
                         </div>
-                        <div class="project-card">
-                            <div class="project-img">
-                                <span style="color: #888; font-size: 0.9rem;">[Image d'illustration]</span>
-                            </div>
-                            <div class="project-content">
-                                <div class="project-date">2027 - à venir</div>
-                                <h4>Projet de stage</h4>
-                                <p>Projet qui sera réalisé durant le stage de première année de BTS SIO.</p>
-                                <div class="tags">
-                                    <span class="tag">À définir</span>
-                                </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-img">
+                            <span style="color: #888; font-size: 0.9rem;">[Image d'illustration]</span>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-date">2027 - à venir</div>
+                            <h4>Projet de stage</h4>
+                            <p>Projet qui sera réalisé durant le stage de première année de BTS SIO.</p>
+                            <div class="tags">
+                                <span class="tag">À définir</span>
                             </div>
                         </div>
                     </div>
@@ -818,51 +780,49 @@
         </section>
 
         <!-- CONTACT -->
-        <section id="contact">
-            <div class="container">
-                <h2 class="section-title">Contact</h2>
-                <div class="contact-container">
-                    <div class="contact-info">
-                        <div class="contact-card">
-                            <i class="fa-solid fa-location-dot"></i>
-                            <span>Livinhac-le-Haut (Aveyron)</span>
-                        </div>
-                        <div class="contact-card">
-                            <i class="fa-solid fa-phone"></i>
-                            <span>06 03 88 08 97</span>
-                        </div>
-                        <div class="contact-card">
-                            <i class="fa-solid fa-envelope"></i>
-                            <a href="mailto:fabiendaviperso@gmail.com">fabiendaviperso@gmail.com</a>
-                        </div>
-                        <div class="contact-card">
-                            <i class="fa-brands fa-linkedin"></i>
-                            <a href="#" target="_blank">[Lien LinkedIn à insérer ici]</a>
-                        </div>
+        <section id="contact" class="section-box">
+            <h2 class="section-title">Contact</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Livinhac-le-Haut (Aveyron)</span>
                     </div>
+                    <div class="contact-card">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>06 03 88 08 97</span>
+                    </div>
+                    <div class="contact-card">
+                        <i class="fa-solid fa-envelope"></i>
+                        <a href="mailto:fabiendaviperso@gmail.com">fabiendaviperso@gmail.com</a>
+                    </div>
+                    <div class="contact-card">
+                        <i class="fa-brands fa-linkedin"></i>
+                        <a href="#" target="_blank">[Lien LinkedIn à insérer ici]</a>
+                    </div>
+                </div>
 
-                    <div class="contact-form">
-                        <!-- Remplacer "VOTRE_ID_FORMSPREE" par votre code Formspree -->
-                        <form action="https://formspree.io/f/VOTRE_ID_FORMSPREE" method="POST">
-                            <div class="form-group">
-                                <label for="nom">Nom</label>
-                                <input type="text" id="nom" name="nom" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">E-mail</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="objet">Objet</label>
-                                <input type="text" id="objet" name="objet" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Message</label>
-                                <textarea id="message" name="message" required></textarea>
-                            </div>
-                            <button type="submit" class="btn-submit">Envoyer</button>
-                        </form>
-                    </div>
+                <div class="contact-form">
+                    <!-- Remplacer "VOTRE_ID_FORMSPREE" par votre code Formspree -->
+                    <form action="https://formspree.io/f/VOTRE_ID_FORMSPREE" method="POST">
+                        <div class="form-group">
+                            <label for="nom">Nom</label>
+                            <input type="text" id="nom" name="nom" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="objet">Objet</label>
+                            <input type="text" id="objet" name="objet" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Envoyer</button>
+                    </form>
                 </div>
             </div>
         </section>
