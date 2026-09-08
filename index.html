@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Fabien DAVI</title>
+    <!-- Lien vers FontAwesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- VARIABLES & RESET --- */
+        :root {
+            --bg-sidebar: #2b1f1a;
+            --text-sidebar: #ffffff;
+            --bg-main: #f9f8f6;
+            --accent-color: #e67e22;
+            --text-main: #333333;
+            --card-bg: #ffffff;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            display: flex;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+        }
+
+        /* --- SIDEBAR --- */
+        .sidebar {
+            width: 260px;
+            background-color: var(--bg-sidebar);
+            color: var(--text-sidebar);
+            position: fixed;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 2rem 1rem;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            background-color: #444;
+            border-radius: 50%;
+            margin: 0 auto 1rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 3px solid #555;
+        }
+        .profile-pic span {
+            font-size: 0.8rem;
+            color: #aaa;
+            text-align: center;
+        }
+        .sidebar h1 {
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+        .sidebar p {
+            font-size: 0.85rem;
+            text-align: center;
+            color: #ccc;
+            margin-bottom: 2rem;
+        }
+        .sidebar nav {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .sidebar nav a {
+            color: var(--text-sidebar);
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .sidebar nav a:hover {
+            background-color: rgba(255,255,255,0.1);
+            color: var(--accent-color);
+        }
+
+        /* --- CONTENU PRINCIPAL --- */
+        .main-content {
+            margin-left: 260px;
+            padding: 3rem 4rem;
+            width: calc(100% - 260px);
+        }
+        section {
+            margin-bottom: 5rem;
+        }
+        h2.section-title {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: var(--bg-sidebar);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        h2.section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        /* --- EN-TÊTE / HERO --- */
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+        .hero h2 {
+            font-size: 1.5rem;
+            color: #666;
+            margin-bottom: 2rem;
+            font-weight: normal;
+        }
+        .btn {
+            display: inline-block;
+            background-color: var(--bg-sidebar);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-right: 15px;
+            transition: 0.3s;
+            border: 2px solid var(--bg-sidebar);
+        }
+        .btn:hover {
+            background-color: transparent;
+            color: var(--bg-sidebar);
+        }
+        .btn-primary {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--accent-color);
+        }
+
+        /* --- PROFIL --- */
+        .profil-container {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        .profil-text {
+            flex: 2;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        .stage-box {
+            flex: 1;
+            background-color: #fff3e0;
+            border-left: 5px solid var(--accent-color);
+            padding: 1.5rem;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        /* --- PARCOURS (TIMELINE) --- */
+        .timeline {
+            border-left: 3px solid var(--accent-color);
+            margin-left: 20px;
+            padding-left: 30px;
+            position: relative;
+        }
+        .timeline-item {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 5px;
+            width: 14px;
+            height: 14px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+        }
+        .timeline-item h3 {
+            color: var(--accent-color);
+            margin-bottom: 5px;
+        }
+        .timeline-item h4 {
+            color: #555;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        .timeline-item ul {
+            padding-left: 20px;
+            margin-top: 10px;
+            color: #444;
+        }
+        .timeline-item ul li {
+            margin-bottom: 5px;
+        }
+        .parcours-category {
+            font-size: 1.5rem;
+            color: var(--bg-sidebar);
+            margin: 3rem 0 1.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* --- COMPÉTENCES --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        .skill-category h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .skill-box-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        .skill-box {
+            background-color: var(--card-bg);
+            border: 1px solid #ddd;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            width: 120px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        .skill-box i {
+            font-size: 2rem;
+            color: var(--accent-color);
+        }
+
+        /* --- PROJETS --- */
+        .project-section h3 {
+            margin: 2rem 0 1rem 0;
+            color: #555;
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        .project-img {
+            width: 100%;
+            height: 180px;
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            font-size: 0.9rem;
+        }
+        .project-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .project-date {
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .project-content h4 {
+            color: var(--bg-sidebar);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        .project-content p {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+        .tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .tag {
+            background-color: var(--bg-sidebar);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        /* --- CONTACT --- */
+        .contact-container {
+            display: flex;
+            gap: 3rem;
+        }
+        .contact-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .contact-card {
+            background-color: var(--card-bg);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .contact-card i {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+        }
+        .contact-form {
+            flex: 2;
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .btn-submit {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--bg-sidebar);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn-submit:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 900px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                padding: 1rem;
+            }
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+                padding: 2rem 1.5rem;
+            }
+            .profil-container, .contact-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION / SIDEBAR -->
+    <aside class="sidebar">
+        <div class="profile-pic">
+            <span>[Espace<br>Photo]</span>
+        </div>
+        <h1>Fabien DAVI</h1>
+        <p>Étudiant en informatique<br>Systèmes et Réseaux<br><br>1ère année BTS SIO . Option SISR</p>
+        <nav>
+            <a href="#accueil"><i class="fa-solid fa-house"></i> Accueil</a>
+            <a href="#profil"><i class="fa-solid fa-user"></i> À propos</a>
+            <a href="#parcours"><i class="fa-solid fa-graduation-cap"></i> Parcours</a>
+            <a href="#competences"><i class="fa-solid fa-code"></i> Compétences</a>
+            <a href="#projets"><i class="fa-solid fa-folder-open"></i> Projets</a>
+            <a href="#contact"><i class="fa-solid fa-envelope"></i> Contact</a>
+        </nav>
+    </aside>
+
+    <!-- CONTENU -->
+    <main class="main-content">
+
+        <!-- ACCUEIL -->
+        <section id="accueil" class="hero">
+            <h2>Portfolio</h2>
+            <h1>Fabien DAVI</h1>
+            <h2>Étudiant en informatique - Systèmes et Réseaux <br> 1ère année BTS SIO . Option SISR</h2>
+            <div>
+                <a href="#projets" class="btn btn-primary">Mes Projets</a>
+                <a href="#" class="btn">Voir mon CV</a>
+                <a href="#contact" class="btn">Me contacter</a>
+            </div>
+        </section>
+
+        <!-- PROFIL -->
+        <section id="profil">
+            <h2 class="section-title">Profil</h2>
+            <div class="profil-container">
+                <div class="profil-text">
+                    <p>[Insérez votre paragraphe de présentation ici. Vous pourrez modifier ce texte facilement en remplaçant cette phrase dans le code.]</p>
+                </div>
+                <div class="stage-box">
+                    <p>Je suis actuellement à la recherche d'un stage de <strong>4 à 5 semaines</strong> dans les domaines des systèmes et réseaux à réaliser entre <strong>mai et août 2027</strong>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PARCOURS -->
+        <section id="parcours">
+            <h2 class="section-title">Parcours</h2>
+
+            <h3 class="parcours-category"><i class="fa-solid fa-book"></i> Formations scolaires</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>BTS SIO SISR</h3>
+                    <h4>Lycée / École (à préciser) - sept 2026 - Auj</h4>
+                    <p>[Espace de description pour cette formation]</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Master de Sociologie - Parcours Réseaux et Sociétés</h3>
+                    <h4>Université Toulouse 2 Jean-Jaurès - Toulouse - sept 2024 - juin 2026</h4>
+                    <p>[Espace de description pour cette formation]</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Licence de Sociologie</h3>
+                    <h4>Université Toulouse 2 Jean-Jaurès - Toulouse - sept 2021 - juin 2024</h4>
+                    <p>[Espace de description pour cette formation]</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>BTS Audiovisuel – Option Montage et post-production</h3>
+                    <h4>Lycée des Arènes - Toulouse - sept 2020 - juin 2021</h4>
+                    <p>[Espace de description pour cette formation]</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>BAC L - Option Anglais Approfondi</h3>
+                    <h4>Lycée La Découverte - Decazeville - juin 2020</h4>
+                    <p>[Espace de description pour cette formation]</p>
+                </div>
+            </div>
+
+            <h3 class="parcours-category"><i class="fa-solid fa-briefcase"></i> Expériences professionnelles</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Chargé d’Enquête</h3>
+                    <h4>Enquête Ecole en partenariat avec La Mêlée - Toulouse, France - 2025 — 2026</h4>
+                    <ul>
+                        <li>Mise en place d’un questionnaire en fonction des besoins du commanditaire</li>
+                        <li>Diffusion du questionnaire</li>
+                        <li>Traitement et analyse statistiques des résultats</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <h3>Bénévole (Création et Gestion logistique)</h3>
+                    <h4>Chorale Les troubadours Bagnacois - Bagnac-sur-Célé, France - 2023 — présent</h4>
+                    <ul>
+                        <li>Création du logo et des supports visuels de la chorale</li>
+                        <li>Gestion des réservations via fichiers Excel dédiés (suivi, contrôles, synthèses)</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <h3>Bénévole (Organisation et Logistique)</h3>
+                    <h4>Ecole de musique Zik’mineur - Livinhac-le-Haut, France - 2018 — présent</h4>
+                    <ul>
+                        <li>Organisation d’évènements (concerts, auditions) et gestion logistique</li>
+                        <li>Mise à jour et structuration de fichiers internes (plannings, inventaires)</li>
+                        <li>Rangement et gestion du matériel musical</li>
+                        <li>Création d’affiches et supports de communication</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- COMPÉTENCES -->
+        <section id="competences">
+            <h2 class="section-title">Compétences</h2>
+            <div class="skills-grid">
+                
+                <div class="skill-category">
+                    <h3>Systèmes d'exploitation</h3>
+                    <div class="skill-box-container">
+                        <div class="skill-box">
+                            <i class="fa-brands fa-windows"></i>
+                            <span>Windows 11</span>
+                        </div>
+                        <div class="skill-box">
+                            <i class="fa-brands fa-linux"></i>
+                            <span>Debian</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Services & Administration</h3>
+                    <div class="skill-box-container">
+                        <div class="skill-box">
+                            <i class="fa-solid fa-server"></i>
+                            <span>OCS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Outils & Virtualisation</h3>
+                    <div class="skill-box-container">
+                        <div class="skill-box">
+                            <i class="fa-solid fa-cube"></i>
+                            <span>VirtualBox</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Réseaux et infrastructures</h3>
+                    <div class="skill-box-container">
+                        <!-- Espace laissé vide pour les ajouts futurs -->
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- PROJETS -->
+        <section id="projets">
+            <h2 class="section-title">Projets</h2>
+
+            <div class="project-section">
+                <h3>Projets scolaires</h3>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-img">[Image d'illustration]</div>
+                        <div class="project-content">
+                            <div class="project-date">2026 - réalisé</div>
+                            <h4>Gérer le patrimoine informatique</h4>
+                            <p>Inventaire matériel et logiciel d'une organisation. Création de groupes statiques et dynamiques. Configuration de partage de fichiers et de niveaux d'habilitation.</p>
+                            <div class="tags">
+                                <span class="tag">OCS Inventory</span>
+                                <span class="tag">VirtualBox</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h3>Projets professionnels</h3>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-img">[Image d'illustration]</div>
+                        <div class="project-content">
+                            <div class="project-date">2027 - à venir</div>
+                            <h4>[Titre du projet pro 1]</h4>
+                            <p>[Description à ajouter plus tard...]</p>
+                            <div class="tags">
+                                <span class="tag">???</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-img">[Image d'illustration]</div>
+                        <div class="project-content">
+                            <div class="project-date">2027 - à venir</div>
+                            <h4>Projet de stage</h4>
+                            <p>Projet qui sera réalisé durant le stage de première année de BTS SIO.</p>
+                            <div class="tags">
+                                <span class="tag">À définir</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact">
+            <h2 class="section-title">Contact</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Livinhac-le-Haut (Aveyron)</span>
+                    </div>
+                    <div class="contact-card">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>06 03 88 08 97</span>
+                    </div>
+                    <div class="contact-card">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>fabiendaviperso@gmail.com</span>
+                    </div>
+                    <div class="contact-card">
+                        <i class="fa-brands fa-linkedin"></i>
+                        <span>[Lien LinkedIn à insérer ici]</span>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <!-- Remplacer "VOTRE_ID_FORMSPREE" par votre code Formspree -->
+                    <form action="https://formspree.io/f/VOTRE_ID_FORMSPREE" method="POST">
+                        <div class="form-group">
+                            <label for="nom">Nom</label>
+                            <input type="text" id="nom" name="nom" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="objet">Objet</label>
+                            <input type="text" id="objet" name="objet" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Envoyer</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+</body>
+</html>
