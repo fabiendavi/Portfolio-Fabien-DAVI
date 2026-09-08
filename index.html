@@ -26,6 +26,7 @@
             display: flex;
             background-color: var(--bg-main);
             color: var(--text-main);
+            overflow-x: hidden;
         }
 
         /* --- SIDEBAR --- */
@@ -39,6 +40,7 @@
             flex-direction: column;
             padding: 2rem 1rem;
             box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            z-index: 100;
         }
         .profile-pic {
             width: 120px;
@@ -100,7 +102,7 @@
         }
         h2.section-title {
             font-size: 1.8rem;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
             color: var(--bg-sidebar);
             position: relative;
             padding-bottom: 10px;
@@ -135,6 +137,7 @@
             text-decoration: none;
             font-weight: bold;
             margin-right: 15px;
+            margin-bottom: 10px;
             transition: 0.3s;
             border: 2px solid var(--bg-sidebar);
         }
@@ -171,92 +174,158 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
 
-        /* --- PARCOURS (TIMELINE) --- */
+        /* --- PARCOURS (FRISE CHRONOLOGIQUE CENTRÉE) --- */
         .timeline {
-            border-left: 3px solid var(--accent-color);
-            margin-left: 20px;
-            padding-left: 30px;
             position: relative;
+            max-width: 900px;
+            margin: 0 auto;
         }
-        .timeline-item {
-            margin-bottom: 2rem;
-            position: relative;
-        }
-        .timeline-item::before {
+        /* La ligne verticale centrale */
+        .timeline::after {
             content: '';
             position: absolute;
-            left: -38px;
-            top: 5px;
-            width: 14px;
-            height: 14px;
-            background-color: var(--accent-color);
-            border-radius: 50%;
+            width: 4px;
+            background-color: #e0e0e0;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
         }
-        .timeline-item h3 {
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            margin-bottom: 2rem;
+        }
+        /* Alternance gauche / droite */
+        .timeline-item.left {
+            left: 0;
+        }
+        .timeline-item.right {
+            left: 50%;
+        }
+        /* Le point sur la ligne */
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--accent-color);
+            border: 4px solid var(--bg-main);
+            border-radius: 50%;
+            top: 20px;
+            z-index: 1;
+        }
+        .timeline-item.left::after {
+            right: -10px;
+        }
+        .timeline-item.right::after {
+            left: -10px;
+        }
+        /* L'encart de contenu */
+        .timeline-content {
+            padding: 1.5rem;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        .timeline-date {
+            display: inline-block;
+            background-color: var(--bg-sidebar);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .timeline-content h3 {
             color: var(--accent-color);
             margin-bottom: 5px;
+            font-size: 1.2rem;
         }
-        .timeline-item h4 {
+        .timeline-content h4 {
             color: #555;
             font-weight: 500;
             margin-bottom: 10px;
+            font-size: 0.95rem;
         }
-        .timeline-item ul {
+        .timeline-content p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        .timeline-content ul {
             padding-left: 20px;
             margin-top: 10px;
             color: #444;
+            font-size: 0.95rem;
         }
-        .timeline-item ul li {
+        .timeline-content ul li {
             margin-bottom: 5px;
         }
-        .parcours-category {
-            font-size: 1.5rem;
-            color: var(--bg-sidebar);
-            margin: 3rem 0 1.5rem 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
 
-        /* --- COMPÉTENCES --- */
+        /* --- COMPÉTENCES (IMAGES PERSONNALISÉES) --- */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 2rem;
         }
         .skill-category h3 {
             font-size: 1.2rem;
             margin-bottom: 1rem;
             text-align: center;
+            color: #555;
         }
         .skill-box-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 15px;
             justify-content: center;
         }
         .skill-box {
             background-color: var(--card-bg);
             border: 1px solid #ddd;
-            padding: 1rem;
+            padding: 1.5rem 1rem;
             border-radius: 8px;
             text-align: center;
-            width: 120px;
+            width: 140px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             gap: 10px;
+            transition: transform 0.2s;
         }
-        .skill-box i {
-            font-size: 2rem;
-            color: var(--accent-color);
+        .skill-box:hover {
+            transform: translateY(-5px);
+        }
+        .skill-box img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+        }
+        .skill-box span {
+            font-weight: 500;
+            color: #444;
+        }
+        .skill-empty {
+            color: #aaa;
+            font-style: italic;
+            font-size: 0.9rem;
+            padding: 2rem;
+            text-align: center;
+            border: 2px dashed #ddd;
+            border-radius: 8px;
+            width: 100%;
         }
 
         /* --- PROJETS --- */
         .project-section h3 {
-            margin: 2rem 0 1rem 0;
+            margin: 2rem 0 1.5rem 0;
             color: #555;
+            font-size: 1.3rem;
         }
         .projects-grid {
             display: grid;
@@ -292,6 +361,7 @@
             color: #888;
             margin-bottom: 10px;
             text-align: center;
+            font-weight: bold;
         }
         .project-content h4 {
             color: var(--bg-sidebar);
@@ -330,7 +400,7 @@
         }
         .contact-card {
             background-color: var(--card-bg);
-            padding: 1rem 1.5rem;
+            padding: 1.2rem 1.5rem;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
             display: flex;
@@ -341,10 +411,15 @@
             color: var(--accent-color);
             font-size: 1.5rem;
         }
+        .contact-card span, .contact-card a {
+            color: #444;
+            text-decoration: none;
+            font-weight: 500;
+        }
         .contact-form {
             flex: 2;
             background-color: var(--card-bg);
-            padding: 2rem;
+            padding: 2.5rem;
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
@@ -358,7 +433,7 @@
         }
         .form-group input, .form-group textarea {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             border: 1px solid #ccc;
             border-radius: 5px;
             font-family: inherit;
@@ -383,7 +458,7 @@
             background-color: var(--accent-color);
         }
 
-        /* --- RESPONSIVE --- */
+        /* --- RESPONSIVE (Mobiles & Tablettes) --- */
         @media (max-width: 900px) {
             .sidebar {
                 width: 100%;
@@ -398,6 +473,21 @@
             }
             .profil-container, .contact-container {
                 flex-direction: column;
+            }
+            /* Adaptation de la frise pour mobile */
+            .timeline::after {
+                left: 20px;
+            }
+            .timeline-item {
+                width: 100%;
+                padding-left: 50px;
+                padding-right: 0;
+            }
+            .timeline-item.left, .timeline-item.right {
+                left: 0;
+            }
+            .timeline-item.left::after, .timeline-item.right::after {
+                left: 10px;
             }
         }
     </style>
@@ -421,7 +511,7 @@
         </nav>
     </aside>
 
-    <!-- CONTENU -->
+    <!-- CONTENU PRINCIPAL -->
     <main class="main-content">
 
         <!-- ACCUEIL -->
@@ -441,7 +531,7 @@
             <h2 class="section-title">Profil</h2>
             <div class="profil-container">
                 <div class="profil-text">
-                    <p>[Insérez votre paragraphe de présentation ici. Vous pourrez modifier ce texte facilement en remplaçant cette phrase dans le code.]</p>
+                    <p>[Insérez votre paragraphe de présentation ici. Vous pourrez le modifier plus tard.]</p>
                 </div>
                 <div class="stage-box">
                     <p>Je suis actuellement à la recherche d'un stage de <strong>4 à 5 semaines</strong> dans les domaines des systèmes et réseaux à réaliser entre <strong>mai et août 2027</strong>.</p>
@@ -449,68 +539,104 @@
             </div>
         </section>
 
-        <!-- PARCOURS -->
+        <!-- PARCOURS (FRISE CHRONOLOGIQUE) -->
         <section id="parcours">
             <h2 class="section-title">Parcours</h2>
-
-            <h3 class="parcours-category"><i class="fa-solid fa-book"></i> Formations scolaires</h3>
+            
             <div class="timeline">
-                <div class="timeline-item">
-                    <h3>BTS SIO SISR</h3>
-                    <h4>Lycée / École (à préciser) - sept 2026 - Auj</h4>
-                    <p>[Espace de description pour cette formation]</p>
+                
+                <!-- 1. Plus récent : BTS SIO -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Sept 2026 - Auj</span>
+                        <h3>BTS SIO SISR</h3>
+                        <h4>[Lycée / École à préciser]</h4>
+                        <p>[Espace de description pour cette formation que j'écrirai plus tard]</p>
+                    </div>
                 </div>
-                <div class="timeline-item">
-                    <h3>Master de Sociologie - Parcours Réseaux et Sociétés</h3>
-                    <h4>Université Toulouse 2 Jean-Jaurès - Toulouse - sept 2024 - juin 2026</h4>
-                    <p>[Espace de description pour cette formation]</p>
-                </div>
-                <div class="timeline-item">
-                    <h3>Licence de Sociologie</h3>
-                    <h4>Université Toulouse 2 Jean-Jaurès - Toulouse - sept 2021 - juin 2024</h4>
-                    <p>[Espace de description pour cette formation]</p>
-                </div>
-                <div class="timeline-item">
-                    <h3>BTS Audiovisuel – Option Montage et post-production</h3>
-                    <h4>Lycée des Arènes - Toulouse - sept 2020 - juin 2021</h4>
-                    <p>[Espace de description pour cette formation]</p>
-                </div>
-                <div class="timeline-item">
-                    <h3>BAC L - Option Anglais Approfondi</h3>
-                    <h4>Lycée La Découverte - Decazeville - juin 2020</h4>
-                    <p>[Espace de description pour cette formation]</p>
-                </div>
-            </div>
 
-            <h3 class="parcours-category"><i class="fa-solid fa-briefcase"></i> Expériences professionnelles</h3>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h3>Chargé d’Enquête</h3>
-                    <h4>Enquête Ecole en partenariat avec La Mêlée - Toulouse, France - 2025 — 2026</h4>
-                    <ul>
-                        <li>Mise en place d’un questionnaire en fonction des besoins du commanditaire</li>
-                        <li>Diffusion du questionnaire</li>
-                        <li>Traitement et analyse statistiques des résultats</li>
-                    </ul>
+                <!-- 2. Chargé d'enquête -->
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <span class="timeline-date">2025 — 2026</span>
+                        <h3>Chargé d’Enquête</h3>
+                        <h4>Enquête Ecole en partenariat avec La Mêlée - Toulouse, France</h4>
+                        <ul>
+                            <li>Mise en place d’un questionnaire en fonction des besoins du commanditaire</li>
+                            <li>Diffusion du questionnaire</li>
+                            <li>Traitement et analyse statistiques des résultats</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="timeline-item">
-                    <h3>Bénévole (Création et Gestion logistique)</h3>
-                    <h4>Chorale Les troubadours Bagnacois - Bagnac-sur-Célé, France - 2023 — présent</h4>
-                    <ul>
-                        <li>Création du logo et des supports visuels de la chorale</li>
-                        <li>Gestion des réservations via fichiers Excel dédiés (suivi, contrôles, synthèses)</li>
-                    </ul>
+
+                <!-- 3. Master -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Sept 2024 - Juin 2026</span>
+                        <h3>Master de Sociologie - Parcours Réseaux et Sociétés</h3>
+                        <h4>Université Toulouse 2 Jean-Jaurès - Toulouse</h4>
+                        <p>[Espace de description pour cette formation]</p>
+                    </div>
                 </div>
-                <div class="timeline-item">
-                    <h3>Bénévole (Organisation et Logistique)</h3>
-                    <h4>Ecole de musique Zik’mineur - Livinhac-le-Haut, France - 2018 — présent</h4>
-                    <ul>
-                        <li>Organisation d’évènements (concerts, auditions) et gestion logistique</li>
-                        <li>Mise à jour et structuration de fichiers internes (plannings, inventaires)</li>
-                        <li>Rangement et gestion du matériel musical</li>
-                        <li>Création d’affiches et supports de communication</li>
-                    </ul>
+
+                <!-- 4. Bénévole Chorale -->
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <span class="timeline-date">2023 — présent</span>
+                        <h3>Bénévole</h3>
+                        <h4>Chorale Les troubadours Bagnacois - Bagnac-sur-Célé, France</h4>
+                        <ul>
+                            <li>Création du logo et des supports visuels de la chorale</li>
+                            <li>Gestion des réservations via fichiers Excel dédiés (suivi, contrôles, synthèses)</li>
+                        </ul>
+                    </div>
                 </div>
+
+                <!-- 5. Licence -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Sept 2021 - Juin 2024</span>
+                        <h3>Licence de Sociologie</h3>
+                        <h4>Université Toulouse 2 Jean-Jaurès - Toulouse</h4>
+                        <p>[Espace de description pour cette formation]</p>
+                    </div>
+                </div>
+
+                <!-- 6. BTS Audiovisuel -->
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Sept 2020 - Juin 2021</span>
+                        <h3>BTS Audiovisuel – Option Montage et post-production</h3>
+                        <h4>Lycée des Arènes - Toulouse</h4>
+                        <p>[Espace de description pour cette formation]</p>
+                    </div>
+                </div>
+
+                <!-- 7. Bac L -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Juin 2020</span>
+                        <h3>BAC L - Option Anglais Approfondi</h3>
+                        <h4>Lycée La Découverte - Decazeville</h4>
+                        <p>[Espace de description pour cette formation]</p>
+                    </div>
+                </div>
+
+                <!-- 8. Plus ancien : Ecole de musique -->
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <span class="timeline-date">2018 — présent</span>
+                        <h3>Bénévole</h3>
+                        <h4>Ecole de musique Zik’mineur - Livinhac-le-Haut, France</h4>
+                        <ul>
+                            <li>Organisation d’évènements (concerts, auditions) et gestion logistique</li>
+                            <li>Mise à jour et structuration de fichiers internes (plannings, inventaires)</li>
+                            <li>Rangement et gestion du matériel musical</li>
+                            <li>Création d’affiches et supports de communication</li>
+                        </ul>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -523,11 +649,11 @@
                     <h3>Systèmes d'exploitation</h3>
                     <div class="skill-box-container">
                         <div class="skill-box">
-                            <i class="fa-brands fa-windows"></i>
+                            <img src="Logo_Windows_11.webp" alt="Windows 11">
                             <span>Windows 11</span>
                         </div>
                         <div class="skill-box">
-                            <i class="fa-brands fa-linux"></i>
+                            <img src="debian-linux.png" alt="Debian">
                             <span>Debian</span>
                         </div>
                     </div>
@@ -537,8 +663,8 @@
                     <h3>Services & Administration</h3>
                     <div class="skill-box-container">
                         <div class="skill-box">
-                            <i class="fa-solid fa-server"></i>
-                            <span>OCS</span>
+                            <img src="e5b7d4_ad393bb356954725b5ba9fa6a0454968~mv2.png" alt="OCS Inventory">
+                            <span>OCS Inventory</span>
                         </div>
                     </div>
                 </div>
@@ -547,7 +673,7 @@
                     <h3>Outils & Virtualisation</h3>
                     <div class="skill-box-container">
                         <div class="skill-box">
-                            <i class="fa-solid fa-cube"></i>
+                            <img src="virtualbox.png" alt="VirtualBox">
                             <span>VirtualBox</span>
                         </div>
                     </div>
@@ -556,7 +682,9 @@
                 <div class="skill-category">
                     <h3>Réseaux et infrastructures</h3>
                     <div class="skill-box-container">
-                        <!-- Espace laissé vide pour les ajouts futurs -->
+                        <div class="skill-empty">
+                            Cette section sera complétée prochainement.
+                        </div>
                     </div>
                 </div>
 
@@ -629,11 +757,11 @@
                     </div>
                     <div class="contact-card">
                         <i class="fa-solid fa-envelope"></i>
-                        <span>fabiendaviperso@gmail.com</span>
+                        <a href="mailto:fabiendaviperso@gmail.com">fabiendaviperso@gmail.com</a>
                     </div>
                     <div class="contact-card">
                         <i class="fa-brands fa-linkedin"></i>
-                        <span>[Lien LinkedIn à insérer ici]</span>
+                        <a href="#" target="_blank">[Lien LinkedIn à insérer ici]</a>
                     </div>
                 </div>
 
