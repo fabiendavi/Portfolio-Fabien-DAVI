@@ -180,7 +180,6 @@
             max-width: 900px;
             margin: 0 auto;
         }
-        /* La ligne verticale centrale */
         .timeline::after {
             content: '';
             position: absolute;
@@ -197,14 +196,12 @@
             width: 50%;
             margin-bottom: 2rem;
         }
-        /* Alternance gauche / droite */
         .timeline-item.left {
             left: 0;
         }
         .timeline-item.right {
             left: 50%;
         }
-        /* Le point sur la ligne */
         .timeline-item::after {
             content: '';
             position: absolute;
@@ -222,7 +219,6 @@
         .timeline-item.right::after {
             left: -10px;
         }
-        /* L'encart de contenu */
         .timeline-content {
             padding: 1.5rem;
             background-color: var(--card-bg);
@@ -265,7 +261,7 @@
             margin-bottom: 5px;
         }
 
-        /* --- COMPÉTENCES (IMAGES PERSONNALISÉES) --- */
+        /* --- COMPÉTENCES --- */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -347,8 +343,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #888;
-            font-size: 0.9rem;
+            overflow: hidden;
+        }
+        /* Style ajouté pour que les images s'adaptent parfaitement à l'encart */
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         .project-content {
             padding: 1.5rem;
@@ -458,7 +459,7 @@
             background-color: var(--accent-color);
         }
 
-        /* --- RESPONSIVE (Mobiles & Tablettes) --- */
+        /* --- RESPONSIVE --- */
         @media (max-width: 900px) {
             .sidebar {
                 width: 100%;
@@ -474,7 +475,6 @@
             .profil-container, .contact-container {
                 flex-direction: column;
             }
-            /* Adaptation de la frise pour mobile */
             .timeline::after {
                 left: 20px;
             }
@@ -539,7 +539,7 @@
             </div>
         </section>
 
-        <!-- PARCOURS (FRISE CHRONOLOGIQUE) -->
+        <!-- PARCOURS -->
         <section id="parcours">
             <h2 class="section-title">Parcours</h2>
             
@@ -699,7 +699,9 @@
                 <h3>Projets scolaires</h3>
                 <div class="projects-grid">
                     <div class="project-card">
-                        <div class="project-img">[Image d'illustration]</div>
+                        <div class="project-img">
+                            <img src="maintenance_parc_informatique.png" alt="Illustration Gérer le patrimoine informatique">
+                        </div>
                         <div class="project-content">
                             <div class="project-date">2026 - réalisé</div>
                             <h4>Gérer le patrimoine informatique</h4>
@@ -717,7 +719,9 @@
                 <h3>Projets professionnels</h3>
                 <div class="projects-grid">
                     <div class="project-card">
-                        <div class="project-img">[Image d'illustration]</div>
+                        <div class="project-img">
+                            <span style="color: #888; font-size: 0.9rem;">[Image d'illustration]</span>
+                        </div>
                         <div class="project-content">
                             <div class="project-date">2027 - à venir</div>
                             <h4>[Titre du projet pro 1]</h4>
@@ -728,7 +732,9 @@
                         </div>
                     </div>
                     <div class="project-card">
-                        <div class="project-img">[Image d'illustration]</div>
+                        <div class="project-img">
+                            <span style="color: #888; font-size: 0.9rem;">[Image d'illustration]</span>
+                        </div>
                         <div class="project-content">
                             <div class="project-date">2027 - à venir</div>
                             <h4>Projet de stage</h4>
