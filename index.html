@@ -108,6 +108,7 @@
         /* Les sections prennent toute la largeur pour alterner les couleurs de fond */
         section {
             padding: 5rem 0;
+            text-align: left; /* Assure que le texte reste aligné à gauche à partir du profil */
         }
         .bg-alt {
             background-color: var(--bg-alt);
@@ -137,15 +138,10 @@
             background-color: var(--accent-color);
         }
 
-        /* --- EN-TÊTE / HERO (Centré) --- */
+        /* --- EN-TÊTE / HERO (Taille normale et Centré) --- */
         .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
             text-align: center;
-            padding: 2rem;
+            padding: 6rem 2rem; /* Taille classique, pas de min-height 100vh */
         }
         .hero .sur-titre {
             color: var(--accent-color);
@@ -252,7 +248,7 @@
             width: 20px;
             height: 20px;
             background-color: var(--accent-color);
-            border: 4px solid var(--bg-alt); /* Couleur de fond de la section */
+            border: 4px solid var(--bg-alt);
             border-radius: 50%;
             top: 20px;
             z-index: 1;
@@ -390,7 +386,7 @@
         .project-img {
             width: 100%;
             height: 180px;
-            background-color: #e0e0e0;
+            background-color: #ffffff; /* Fond blanc si l'image est transparente */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -400,6 +396,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: top; /* FORCE L'IMAGE À DÉMARRER PAR LE HAUT */
         }
         .project-content {
             padding: 1.5rem;
@@ -625,7 +622,7 @@
                         <div class="timeline-content">
                             <span class="timeline-date">2025 — 2026</span>
                             <h3>Chargé d’Enquête</h3>
-                            <h4>Enquête Ecole en partenariat avec La Mêlée - Toulouse, France</h4>
+                            <h4>Enquête Ecole en partenariat avec La Mêlée - Toulouse</h4>
                             <ul>
                                 <li>Mise en place d’un questionnaire en fonction des besoins du commanditaire</li>
                                 <li>Diffusion du questionnaire</li>
