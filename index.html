@@ -239,6 +239,10 @@
         .timeline-item.right {
             left: 50%;
         }
+        /* Encart stage élargi vers la droite */
+        .timeline-item.right.wide {
+            width: calc(50% + 300px);
+        }
         .timeline-item::after {
             content: '';
             position: absolute;
@@ -552,6 +556,9 @@
                 margin-left: 0;
                 top: 20px;
             }
+            .timeline-item.right.wide {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -648,7 +655,7 @@
                     </div>
                     
                     <!-- 4. Stage LISST -->
-                    <div class="timeline-item right">
+                    <div class="timeline-item right wide">
                         <div class="timeline-content">
                             <span class="timeline-date">Avril 2026 - Juin 2026</span>
                             <h3>Chargé de renseignement</h3>
