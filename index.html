@@ -446,19 +446,21 @@
             font-size: 0.8rem;
         }
         /* --- CONTACT --- */
-        .contact-container {
-            display: flex;
-            gap: 3rem;
-            align-items: flex-start; /* Aligne le haut des deux colonnes */
-        }
         #contact .container {
             max-width: 1200px;
         }
+        .contact-container {
+            display: flex;
+            flex-direction: row; /* Force l'alignement horizontal */
+            flex-wrap: nowrap; /* Empêche le passage à la ligne */
+            gap: 3rem;
+            align-items: flex-start;
+        }
         .contact-info {
-            flex: 0 0 450px; /* On élargit à 450px pour laisser la place au lien LinkedIn complet */
+            flex: 0 0 450px; /* Fixe la largeur de la colonne de gauche à 450px */
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: 1.5rem; /* Augmente légèrement l'espacement entre les cartes */
         }
         .contact-card {
             background-color: var(--card-bg);
@@ -480,10 +482,10 @@
             color: #444;
             text-decoration: none;
             font-weight: 500;
-            white-space: nowrap; /* Force le texte à rester sur une seule ligne */
+            white-space: nowrap; 
         }
         .contact-form {
-            flex: 1; /* Le formulaire prend tout le reste de l'espace à droite */
+            flex: 1; /* Le formulaire prend tout l'espace restant à droite */
             background-color: var(--card-bg);
             padding: 2.5rem;
             border-radius: 8px;
@@ -579,13 +581,16 @@
                 width: 100%;
             }
         }
+            .contact-container {
+                flex-direction: column; /* Repasse en vertical sur mobile */
+            }
             .contact-info {
                 flex: 1;
-                width: 100%; /* S'assure que ça prend toute la largeur sur mobile */
+                width: 100%; 
             }
             .contact-card span, .contact-card a {
-                white-space: normal; /* Annule le "nowrap" sur téléphone pour ne pas déborder de l'écran */
-                word-break: break-all; /* Coupe les liens trop longs */
+                white-space: normal;
+                word-break: break-all;
             }
         }
     </style>
