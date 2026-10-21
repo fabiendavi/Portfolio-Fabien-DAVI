@@ -299,11 +299,11 @@
             margin-bottom: 5px;
         }
 
-        /* --- COMPÉTENCES --- */
+/* --- COMPÉTENCES --- */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(2, 1fr); /* 2 sections par ligne */
+            gap: 3rem 2rem;
         }
         .skill-category h3 {
             font-size: 1.2rem;
@@ -312,18 +312,19 @@
             color: #555;
         }
         .skill-box-container {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 icônes par ligne */
             gap: 15px;
-            justify-content: center;
+            justify-items: center;
         }
         .skill-box {
             background-color: var(--card-bg);
             border: 1px solid #eee;
-            padding: 1.5rem 1rem;
+            padding: 1.5rem 0.5rem;
             border-radius: 8px;
             text-align: center;
-            width: 140px;
+            width: 100%;
+            max-width: 130px; /* Ajusté pour tenir à 3 par ligne */
             box-shadow: 0 4px 10px rgba(0,0,0,0.03);
             display: flex;
             flex-direction: column;
@@ -336,13 +337,14 @@
             transform: translateY(-5px);
         }
         .skill-box img {
-            width: 60px;
-            height: 60px;
+            width: 50px; /* Légèrement réduit pour aérer la grille */
+            height: 50px;
             object-fit: contain;
         }
         .skill-box span {
             font-weight: 500;
             color: #444;
+            font-size: 0.9rem;
         }
         .skill-empty {
             color: #aaa;
@@ -353,6 +355,7 @@
             border: 2px dashed #ddd;
             border-radius: 8px;
             width: 100%;
+            grid-column: span 3; /* Prend toute la largeur de la sous-section si vide */
         }
 
         /* --- PROJETS --- */
@@ -541,6 +544,12 @@
                 left: 10px;
             }
         }
+        .skills-grid {
+                grid-template-columns: 1fr; /* 1 catégorie par ligne sur mobile */
+            }
+            .skill-box-container {
+                grid-template-columns: repeat(2, 1fr); /* 2 icônes par ligne sur mobile */
+            }
     </style>
 </head>
 <body>
@@ -711,7 +720,7 @@
                                 <span>Windows 11</span>
                             </div>
                             <div class="skill-box">
-                                <img src="image_6bfb04.png" alt="Windows Server">
+                                <img src="windows-server-2.png" alt="Windows Server">
                                 <span>Windows Server</span>
                             </div>
                             <div class="skill-box">
@@ -719,7 +728,7 @@
                                 <span>Debian</span>
                             </div>
                             <div class="skill-box">
-                                <img src="image_6bfb5b.png" alt="Ubuntu">
+                                <img src="Ubuntu-Logo_ohne_Schriftzug.svg.png" alt="Ubuntu">
                                 <span>Ubuntu</span>
                             </div>
                         </div>
@@ -730,19 +739,19 @@
                         <h3>Réseaux & infrastructures</h3>
                         <div class="skill-box-container">
                             <div class="skill-box">
-                                <img src="image_6bfec0.png" alt="Cisco IOS">
+                                <img src="Cisco_logo.svg.png" alt="Cisco IOS">
                                 <span>Cisco IOS</span>
                             </div>
                             <div class="skill-box">
-                                <img src="image_6bff1f.png" alt="Active Directory">
+                                <img src="NOM_COMPLET_ACTIVE_DIRECTORY.png" alt="Active Directory">
                                 <span>Active Directory</span>
                             </div>
                             <div class="skill-box">
-                                <img src="image_6c0284.png" alt="Services d'impression">
+                                <img src="1869834.png" alt="Services d'impression">
                                 <span>Services d'impression</span>
                             </div>
                             <div class="skill-box">
-                                <img src="image_6c02db.png" alt="Sauvegarde">
+                                <img src="4668818.png" alt="Sauvegarde">
                                 <span>Sauvegarde</span>
                             </div>
                         </div>
@@ -753,7 +762,7 @@
                         <h3>Services & administration</h3>
                         <div class="skill-box-container">
                             <div class="skill-box">
-                                <img src="image_6c065e.png" alt="Apache HTTP Server">
+                                <img src="apache-logo.png" alt="Apache HTTP Server">
                                 <span>Apache HTTP Server</span>
                             </div>
                             <div class="skill-box">
@@ -761,7 +770,7 @@
                                 <span>MariaDB</span>
                             </div>
                             <div class="skill-box">
-                                <img src="image_6c0969.png" alt="GLPI">
+                                <img src="G-GLPI.png" alt="GLPI">
                                 <span>GLPI</span>
                             </div>
                             <div class="skill-box">
@@ -780,7 +789,7 @@
                                 <span>VirtualBox</span>
                             </div>
                             <div class="skill-box">
-                                <img src="image_6c05c5.png" alt="Powershell">
+                                <img src="PowerShell_5.0_icon.png" alt="Powershell">
                                 <span>Powershell</span>
                             </div>
                         </div>
