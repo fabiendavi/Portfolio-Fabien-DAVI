@@ -239,20 +239,6 @@
         .timeline-item.right {
             left: 50%;
         }
-        /* Encart pleine largeur (stage LISST) */
-        .timeline-item.full {
-            width: 100%;
-            left: 0;
-            padding: 10px 0;
-        }
-        .timeline-item.full::after {
-            left: 50%;
-            margin-left: -10px;
-            top: -4px;
-        }
-        .timeline-content p.texte-stage {
-            line-height: 1.5;
-        }
         .timeline-item::after {
             content: '';
             position: absolute;
@@ -662,16 +648,15 @@
                     </div>
                     
                     <!-- 4. Stage LISST -->
-                    <div class="timeline-item full">
+                    <div class="timeline-item right">
                         <div class="timeline-content">
                             <span class="timeline-date">Avril 2026 - Juin 2026</span>
                             <h3>Chargé de renseignement</h3>
                             <h4>Laboratoire Interdisciplinaire - Solidarités, Sociétés, Territoires (LISST) - Toulouse</h4>
                             <p class="texte-stage">
-                                Dans le cadre du projet de recherche NEMO, consacré à l’influence des réseaux sociaux sur le vote des classes populaires en Occitanie,
-                                j’ai exploité les données de Cagé et Piketty ainsi que les résultats des législatives 2024 pour quatre départements (Aude, Ariège, Gard, Tarn).
-                                Sous R, j’ai nettoyé et harmonisé ces bases, puis produit des cartographies (mapsf, ggplot2) et des monographies sociodémographiques et électorales au format Quarto (HTML/PDF).
-                                J’ai également développé un script automatisé et paramétrable : à partir d’un simple code INSEE, il génère les indicateurs clés de n’importe quelle commune d’Occitanie.
+                                Préparation du projet de recherche NEMO sur le vote des classes populaires en Occitanie :
+                                nettoyage et croisement de données sociodémographiques et électorales (Aude, Ariège, Gard, Tarn) sous R, réalisation de cartographies et de monographies Quarto,
+                                et création d’un script automatisé produisant les indicateurs clés de n’importe quelle commune à partir de son code INSEE.
                             </p>
                         </div>
                     </div>
