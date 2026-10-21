@@ -239,6 +239,20 @@
         .timeline-item.right {
             left: 50%;
         }
+        /* Encart pleine largeur (stage LISST) */
+        .timeline-item.full {
+            width: 100%;
+            left: 0;
+            padding: 10px 0;
+        }
+        .timeline-item.full::after {
+            left: 50%;
+            margin-left: -10px;
+            top: -4px;
+        }
+        .timeline-content p.texte-stage {
+            line-height: 1.5;
+        }
         .timeline-item::after {
             content: '';
             position: absolute;
@@ -544,6 +558,14 @@
             .projects-grid {
                 grid-template-columns: 1fr;
             }
+            .timeline-item.full {
+                padding: 10px 0 10px 50px;
+            }
+            .timeline-item.full::after {
+                left: 10px;
+                margin-left: 0;
+                top: 20px;
+            }
         }
     </style>
 </head>
@@ -639,18 +661,18 @@
                         </div>
                     </div>
                     
-                    <!-- 4. NOUVEAU : Stage LISST -->
-                    <div class="timeline-item right">
+                    <!-- 4. Stage LISST -->
+                    <div class="timeline-item full">
                         <div class="timeline-content">
                             <span class="timeline-date">Avril 2026 - Juin 2026</span>
-                            <h3> renseignement</h3>
+                            <h3>Chargé de renseignement</h3>
                             <h4>Laboratoire Interdisciplinaire - Solidarités, Sociétés, Territoires (LISST) - Toulouse</h4>
-                            <ul>
-                                <li>Dans le cadre du projet de recherche NEMO, consacré à l’influence des réseaux sociaux sur le vote des classes populaires en Occitanie,
-                                    j’ai exploité les données de Cagé et Piketty ainsi que les résultats des législatives 2024 pour quatre départements (Aude, Ariège, Gard, Tarn).
-                                    Sous R, j’ai nettoyé et harmonisé ces bases, puis produit des cartographies (mapsf, ggplot2) et des monographies sociodémographiques et électorales au format Quarto (HTML/PDF).
-                                    J’ai également développé un script automatisé et paramétrable : à partir d’un simple code INSEE, il génère les indicateurs clés de n’importe quelle commune d’Occitanie.</li>
-                            </ul>
+                            <p class="texte-stage">
+                                Dans le cadre du projet de recherche NEMO, consacré à l’influence des réseaux sociaux sur le vote des classes populaires en Occitanie,
+                                j’ai exploité les données de Cagé et Piketty ainsi que les résultats des législatives 2024 pour quatre départements (Aude, Ariège, Gard, Tarn).
+                                Sous R, j’ai nettoyé et harmonisé ces bases, puis produit des cartographies (mapsf, ggplot2) et des monographies sociodémographiques et électorales au format Quarto (HTML/PDF).
+                                J’ai également développé un script automatisé et paramétrable : à partir d’un simple code INSEE, il génère les indicateurs clés de n’importe quelle commune d’Occitanie.
+                            </p>
                         </div>
                     </div>
 
