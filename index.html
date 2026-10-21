@@ -302,9 +302,8 @@
 /* --- COMPÉTENCES --- */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 2 colonnes pour séparer les catégories */
-            column-gap: 4rem; /* Grand espace horizontal entre les catégories */
-            row-gap: 3rem; /* Espace vertical entre les catégories */
+            grid-template-columns: repeat(2, 1fr); /* Force 2 catégories par ligne */
+            gap: 3rem 4rem; /* Espacement vertical et horizontal entre les catégories */
             align-items: start;
         }
         .skill-category h3 {
@@ -316,10 +315,9 @@
             font-weight: bold;
         }
         .skill-box-container {
-            display: flex; /* Utilisation de flexbox pour gérer les icônes */
-            flex-wrap: wrap; /* Permet le passage à la ligne */
-            gap: 15px; /* Espace entre les boîtes */
-            justify-content: flex-start; /* Aligne toutes les boîtes à gauche */
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Force strictement 3 icônes par ligne */
+            gap: 15px;
         }
         .skill-box {
             background-color: var(--card-bg);
@@ -327,9 +325,7 @@
             padding: 1rem 0.5rem;
             border-radius: 8px;
             text-align: center;
-            width: calc(33.333% - 10px); /* Force exactement 3 boîtes par ligne en déduisant le gap */
-            min-width: 110px; /* Largeur minimum pour ne pas écraser les images */
-            max-width: 140px; /* Largeur maximum pour coller au design */
+            width: 100%;
             height: 120px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.03);
             display: flex;
@@ -343,7 +339,7 @@
             transform: translateY(-5px);
         }
         .skill-box img {
-            width: 45px; /* Taille optimale de l'icône */
+            width: 45px;
             height: 45px;
             object-fit: contain;
         }
@@ -541,11 +537,11 @@
             }
         }
         .skills-grid {
-                grid-template-columns: 1fr; /* 1 catégorie par ligne sur mobile */
-            }
-            .skill-box-container {
-                grid-template-columns: repeat(2, 1fr); /* 2 icônes par ligne sur mobile */
-            }
+            grid-template-columns: 1fr; /* Repasse à 1 catégorie par ligne sur mobile */
+        }
+        .skill-box-container {
+            grid-template-columns: repeat(2, 1fr); /* 2 icônes par ligne sur mobile */
+        }
     </style>
 </head>
 <body>
