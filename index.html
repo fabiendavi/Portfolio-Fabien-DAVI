@@ -302,20 +302,22 @@
 /* --- COMPÉTENCES --- */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 2 sections par ligne */
+            grid-template-columns: repeat(2, 1fr); /* 2 grandes catégories par ligne */
             gap: 3rem 2rem;
+            align-items: start; /* Empêche les catégories de s'étirer verticalement */
         }
         .skill-category h3 {
             font-size: 1.2rem;
             margin-bottom: 1.5rem;
-            text-align: center;
+            text-align: left; /* Aligné à gauche comme sur la maquette */
             color: #555;
+            padding-left: 5px;
         }
         .skill-box-container {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 3 icônes par ligne */
+            grid-template-columns: repeat(3, 130px); /* Force exactement 3 colonnes de 130px */
             gap: 15px;
-            justify-items: center;
+            justify-content: start; /* Aligne les boîtes à gauche au lieu de les centrer */
         }
         .skill-box {
             background-color: var(--card-bg);
@@ -324,7 +326,7 @@
             border-radius: 8px;
             text-align: center;
             width: 100%;
-            max-width: 130px; /* Ajusté pour tenir à 3 par ligne */
+            height: 120px; /* Fixe la hauteur pour éviter les décalages */
             box-shadow: 0 4px 10px rgba(0,0,0,0.03);
             display: flex;
             flex-direction: column;
@@ -337,25 +339,15 @@
             transform: translateY(-5px);
         }
         .skill-box img {
-            width: 50px; /* Légèrement réduit pour aérer la grille */
+            width: 50px;
             height: 50px;
             object-fit: contain;
         }
         .skill-box span {
             font-weight: 500;
             color: #444;
-            font-size: 0.9rem;
-        }
-        .skill-empty {
-            color: #aaa;
-            font-style: italic;
-            font-size: 0.9rem;
-            padding: 2rem;
-            text-align: center;
-            border: 2px dashed #ddd;
-            border-radius: 8px;
-            width: 100%;
-            grid-column: span 3; /* Prend toute la largeur de la sous-section si vide */
+            font-size: 0.85rem; /* Légèrement réduit pour éviter que les mots longs ne débordent */
+            line-height: 1.2;
         }
 
         /* --- PROJETS --- */
