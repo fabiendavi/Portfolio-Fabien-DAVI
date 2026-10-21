@@ -299,11 +299,11 @@
             margin-bottom: 5px;
         }
 
-/* --- COMPÉTENCES --- */
+        /* --- COMPÉTENCES --- */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* Force 2 catégories par ligne */
-            gap: 3rem 4rem; /* Espacement vertical et horizontal entre les catégories */
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem 4rem;
             align-items: start;
         }
         .skill-category h3 {
@@ -316,7 +316,7 @@
         }
         .skill-box-container {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* Force strictement 3 icônes par ligne */
+            grid-template-columns: repeat(3, 1fr);
             gap: 15px;
         }
         .skill-box {
@@ -350,7 +350,7 @@
             line-height: 1.2;
         }
 
-        /* --- S --- */
+        /* --- PROJETS --- */
         .project-section h3 {
             margin: 0 0 1.5rem 0;
             color: #555;
@@ -363,7 +363,7 @@
         }
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* Force strictement 3 s par ligne */
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
         }
         .project-card {
@@ -502,7 +502,7 @@
             background-color: var(--accent-color);
         }
 
-/* --- RESPONSIVE --- */
+        /* --- RESPONSIVE --- */
         @media (max-width: 900px) {
             .sidebar {
                 width: 100%;
@@ -536,13 +536,13 @@
                 left: 10px;
             }
             .skills-grid {
-                grid-template-columns: 1fr; /* Repasse à 1 catégorie par ligne sur mobile */
+                grid-template-columns: 1fr;
             }
             .skill-box-container {
-                grid-template-columns: repeat(2, 1fr); /* 2 icônes par ligne sur mobile */
+                grid-template-columns: repeat(2, 1fr);
             }
             .projects-grid {
-                grid-template-columns: 1fr; /* 1 seul  par ligne sur mobile */
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -608,15 +608,29 @@
                     <!-- 1. Plus récent : BTS SIO -->
                     <div class="timeline-item left">
                         <div class="timeline-content">
-                            <span class="timeline-date">Sept 2026 - Présent</span>
+                            <span class="timeline-date">Sept 2026 - présent</span>
                             <h3>BTS SIO SISR</h3>
                             <h4>CNED - Chasseneuil-du-Poitou</h4>
                             <p>[Espace de description pour cette formation que j'écrirai plus tard]</p>
                         </div>
                     </div>
 
-                    <!-- 2. enquête -->
+                    <!-- 2. NOUVEAU : Stage LISST -->
                     <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <span class="timeline-date">Avril 2026 - Juin 2026</span>
+                            <h3>Chargé de renseignement</h3>
+                            <h4>Laboratoire Interdisciplinaire - Solidarités, Sociétés, Territoires (LISST) - Toulouse</h4>
+                            <ul>
+                                <li>Centraliser et nettoyer plusieurs bases de données</li>
+                                <li>Livrer un document généré via un script Quarto (format PDF/HTML)</li>
+                                <li>Développer un script R Quarto paramétrable permettant aux futurs utilisateurs de répliquer les travaux et pouvoir en extraire automatiquement des indicateurs clés</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 3. enquête -->
+                    <div class="timeline-item left">
                         <div class="timeline-content">
                             <span class="timeline-date">Sept 2025 — Sept 2026</span>
                             <h3>Chargé d'Enquête</h3>
@@ -629,8 +643,8 @@
                         </div>
                     </div>
 
-                    <!-- 3. Master -->
-                    <div class="timeline-item left">
+                    <!-- 4. Master -->
+                    <div class="timeline-item right">
                         <div class="timeline-content">
                             <span class="timeline-date">Juin 2026</span>
                             <h3>Master de Sociologie - Parcours Réseaux et Sociétés</h3>
@@ -639,8 +653,8 @@
                         </div>
                     </div>
 
-                    <!-- 4. Licence (Déplacé ici) -->
-                    <div class="timeline-item right">
+                    <!-- 5. Licence -->
+                    <div class="timeline-item left">
                         <div class="timeline-content">
                             <span class="timeline-date">Juin 2024</span>
                             <h3>Licence de Sociologie</h3>
@@ -649,8 +663,8 @@
                         </div>
                     </div>
 
-                    <!-- 5. Bénévole Chorale (Déplacé ici) -->
-                    <div class="timeline-item left">
+                    <!-- 6. Bénévole Chorale -->
+                    <div class="timeline-item right">
                         <div class="timeline-content">
                             <span class="timeline-date">2023 — présent</span>
                             <h3>Bénévole</h3>
@@ -662,8 +676,8 @@
                         </div>
                     </div>
 
-                    <!-- 6. BTS Audiovisuel -->
-                    <div class="timeline-item right">
+                    <!-- 7. BTS Audiovisuel -->
+                    <div class="timeline-item left">
                         <div class="timeline-content">
                             <span class="timeline-date">Sept 2020 - Juin 2021</span>
                             <h3>BTS Audiovisuel – Option Montage et post-production</h3>
@@ -672,8 +686,8 @@
                         </div>
                     </div>
 
-                    <!-- 7. Bac L -->
-                    <div class="timeline-item left">
+                    <!-- 8. Bac L -->
+                    <div class="timeline-item right">
                         <div class="timeline-content">
                             <span class="timeline-date">Juin 2020</span>
                             <h3>BAC L - Option Anglais Approfondi</h3>
@@ -682,8 +696,8 @@
                         </div>
                     </div>
 
-                    <!-- 8. Plus ancien : Ecole de musique -->
-                    <div class="timeline-item right">
+                    <!-- 9. Plus ancien : Ecole de musique -->
+                    <div class="timeline-item left">
                         <div class="timeline-content">
                             <span class="timeline-date">2018 — présent</span>
                             <h3>Bénévole</h3>
@@ -700,7 +714,7 @@
             </div>
         </section>
 
-<!-- COMPÉTENCES -->
+        <!-- COMPÉTENCES -->
         <section id="competences">
             <div class="container">
                 <h2 class="section-title">Compétences</h2>
@@ -794,7 +808,7 @@
             </div>
         </section>
 
-<!-- PROJETS (Fond blanc) -->
+        <!-- PROJETS (Fond blanc) -->
         <section id="projets" class="bg-alt">
             <div class="container">
                 <h2 class="section-title">Projets</h2>
@@ -819,7 +833,7 @@
 
                         <div class="project-card">
                             <div class="project-img">
-                                <img src="d767ac450f90-visuel-cybersecurite.jpg" alt="Illustration Gérer les incidents et demandes d'évolution" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                <img src="image_6d66a8.jpg" alt="Illustration Gérer les incidents et demandes d'évolution" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                                 <span style="display:none; color: #888; font-size: 0.9rem;">[Image d'illustration]</span>
                             </div>
                             <div class="project-content">
@@ -836,7 +850,7 @@
 
                         <div class="project-card">
                             <div class="project-img">
-                                <img src="visuels_site_client.png" alt="Illustration Mettre à disposition un service informatique" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                <img src="image_6d671f.png" alt="Illustration Mettre à disposition un service informatique" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                                 <span style="display:none; color: #888; font-size: 0.9rem;">[Image d'illustration]</span>
                             </div>
                             <div class="project-content">
@@ -859,7 +873,6 @@
                     <div class="projects-grid">
                         <div class="project-card">
                             <div class="project-img">
-                                <!-- Ligne corrigée avec .png -->
                                 <img src="Twitter-LKN-1200x630-1.png" alt="Illustration Gestion du parc d'une médiathèque">
                             </div>
                             <div class="project-content">
@@ -871,10 +884,10 @@
                                 </div>
                             </div>
                         </div>
-                            <div class="project-card">
-                                <div class="project-img">
-                                    <img src="efrei-paris-atelier-informatique-etudes-tech-1536x1024.jpg" alt="Illustration Projet de stage" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                                    <span style="display:none; color: #888; font-size: 0.9rem;">[Image d'illustration]</span>
+                        <div class="project-card">
+                            <div class="project-img">
+                                <img src="efrei-paris-atelier-informatique-etudes-tech-1536x1024.jpg" alt="Illustration Projet de stage" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                <span style="display:none; color: #888; font-size: 0.9rem;">[Image d'illustration]</span>
                             </div>
                             <div class="project-content">
                                 <div class="project-date">2027 - à venir</div>
