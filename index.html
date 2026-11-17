@@ -668,4 +668,470 @@
             }
             .contact-info {
                 flex: 1;
-                width: 100
+                width: 100%; 
+            }
+            .contact-card span, .contact-card a {
+                white-space: normal;
+                word-break: break-all;
+            }
+            .modal-images {
+                flex-direction: column;
+                align-items: center;
+            }
+            .modal-images img {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION / SIDEBAR -->
+    <aside class="sidebar">
+        <div class="profile-pic">
+            <img src="img/photo.jpg" alt="Photo de profil" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <span style="display:none;">[Espace<br>Photo]</span>
+        </div>
+        <h1>Fabien DAVI</h1>
+        <p>Étudiant en informatique<br>Systèmes et Réseaux</p>
+        <nav>
+            <a href="#accueil"><i class="fa-solid fa-house"></i> Accueil</a>
+            <a href="#profil"><i class="fa-solid fa-user"></i> À propos</a>
+            <a href="#parcours"><i class="fa-solid fa-graduation-cap"></i> Parcours</a>
+            <a href="#competences"><i class="fa-solid fa-code"></i> Compétences</a>
+            <a href="#projets"><i class="fa-solid fa-folder-open"></i> Projets</a>
+            <a href="#contact"><i class="fa-solid fa-envelope"></i> Contact</a>
+        </nav>
+    </aside>
+
+    <!-- CONTENU PRINCIPAL -->
+    <main class="main-content">
+
+        <!-- ACCUEIL -->
+        <section id="accueil" class="hero bg-alt">
+            <div class="container">
+                <div class="sur-titre">Portfolio</div>
+                <h1>Fabien DAVI</h1>
+                <h2>Étudiant en informatique - Systèmes et Réseaux <br> 1ère année BTS SIO • Option SISR</h2>
+                <div class="hero-buttons">
+                    <a href="#projets" class="btn btn-primary">Mes Projets</a>
+                    <a href="ressources/CV_Fabien_DAVI__BTS_SIO_SISR_V3.pdf" download="CV_Fabien_Davi.pdf" class="btn">Voir mon CV</a>
+                    <a href="#contact" class="btn">Me contacter</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROFIL -->
+        <section id="profil" class="section-box">
+            <div class="container">
+                <h2 class="section-title">Profil</h2>
+                <div class="profil-container">
+                    <div class="profil-text">
+                        <p>Après l'obtention d'un <strong>Master en Sociologie RESO</strong> (Parcours Réseaux et Sociabilités) orienté analyse statistique, analyse de données et web scrapping,
+                            je me suis rendu compte d'à quel point je souhaitais utiliser mes compétences en informatiques de manière plus concrète dans le seul but d'aider les usagers.
+                            Ainsi, je me suis redirigé vers un <strong>BTS SIO</strong> (Services Informatiques aux Organisations) option SISR (Solutions d'Infrastructure, Systèmes et Réseaux).
+                            Mon objectif est de me spécialiser dans les métiers des <strong>systèmes et réseaux informatiques</strong> ainsi que du support.</p>
+                    </div>
+                    <div class="stage-box">
+                        <p>Je suis actuellement à la recherche d'un stage de <strong>4 à 5 semaines</strong> dans les domaines des systèmes et réseaux à réaliser entre <strong>mai et août 2027</strong>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PARCOURS -->
+        <section id="parcours" class="bg-alt">
+            <div class="container">
+                <h2 class="section-title">Parcours</h2>
+                
+                <div class="timeline">
+                    <!-- 1. Plus récent : BTS SIO -->
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <span class="timeline-date">Sept 2026 - présent</span>
+                            <h3>BTS SIO SISR</h3>
+                            <h4>CNED - Chasseneuil-du-Poitou</h4>
+                            <p>Formation préparant aux métiers de l'administration des systèmes et réseaux, du support informatique, de la gestion des infrastructures,
+                                de la maintenance et de la cybersécurité des infrastructures.</p>
+                        </div>
+                    </div>
+
+                    <!-- 2. Master -->
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <span class="timeline-date">Sept 2026</span>
+                            <h3>Master RESO (Sociologie)</h3>
+                            <h4>Université Toulouse 2 Jean-Jaurès - Toulouse</h4>
+                            <p>Obtention du master de sociologie parcours réseaux et sociétés.</p>
+                        </div>
+                    </div>
+
+                    <!-- 3. enquête -->
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <span class="timeline-date">Sept 2025 — Sept 2026</span>
+                            <h3>Chargé d'Enquête</h3>
+                            <h4>Enquête Ecole en partenariat avec La Mêlée - Toulouse</h4>
+                            <ul>
+                                <li>Mise en place d'un questionnaire en fonction des besoins du commanditaire</li>
+                                <li>Diffusion du questionnaire</li>
+                                <li>Traitement et analyse statistiques des résultats</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- 4. Stage LISST -->
+                    <div class="timeline-item right wide">
+                        <div class="timeline-content">
+                            <span class="timeline-date">Avril 2026 - Juin 2026</span>
+                            <h3>Chargé de renseignement</h3>
+                            <h4>Laboratoire Interdisciplinaire - Solidarités, Sociétés, Territoires (LISST) - Toulouse</h4>
+                            <p class="texte-stage">
+                                Préparation du projet de recherche NEMO sur le vote des classes populaires en Occitanie :
+                                nettoyage et croisement de données sociodémographiques et électorales (Aude, Ariège, Gard, Tarn) sous R, réalisation de cartographies et de monographies Quarto,
+                                et création d’un script automatisé produisant les indicateurs clés de n’importe quelle commune à partir de son code INSEE.
+                            </p>
+                            <!-- Bouton ajouté pour la pop-up -->
+                            <button class="btn btn-primary btn-small" onclick="openModal('modal-lisst')">Plus d'informations</button>
+                        </div>
+                    </div>
+
+                    <!-- 5. Licence -->
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <span class="timeline-date">Juin 2024</span>
+                            <h3>Licence de Sociologie</h3>
+                            <h4>Université Toulouse 2 Jean-Jaurès - Toulouse</h4>
+                            <p>Obtention de la Licence Générale de Sociologie.</p>
+                        </div>
+                    </div>
+
+                    <!-- 6. Bénévole Chorale -->
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <span class="timeline-date">2023 — présent</span>
+                            <h3>Bénévole</h3>
+                            <h4>Chorale Les troubadours Bagnacois - Bagnac-sur-Célé</h4>
+                            <ul>
+                                <li>Création du logo et des supports visuels de la chorale</li>
+                                <li>Gestion des réservations via fichiers Excel dédiés (suivi, contrôles, synthèses)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 7. BTS Audiovisuel -->
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <span class="timeline-date">Sept 2020 - Juin 2021</span>
+                            <h3>BTS Audiovisuel – Option Montage et post-production</h3>
+                            <h4>Lycée des Arènes - Toulouse</h4>
+                        </div>
+                    </div>
+
+                    <!-- 8. Bac L -->
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <span class="timeline-date">Juin 2020</span>
+                            <h3>BAC L - Option LVA</h3>
+                            <h4>Lycée La Découverte - Decazeville</h4>
+                            <p>Obtention du baccalauréat littéraire, option Langue Vivante Approfondie (Anglais). </p>
+                        </div>
+                    </div>
+
+                    <!-- 9. Plus ancien : Ecole de musique -->
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <span class="timeline-date">2018 — présent</span>
+                            <h3>Bénévole</h3>
+                            <h4>Ecole de musique Zik'mineur - Livinhac-le-Haut</h4>
+                            <ul>
+                                <li>Organisation d'évènements (concerts, auditions) et gestion logistique</li>
+                                <li>Mise à jour et structuration de fichiers internes (plannings, inventaires)</li>
+                                <li>Rangement et gestion du matériel musical</li>
+                                <li>Création d'affiches et supports de communication</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- COMPÉTENCES -->
+        <section id="competences">
+            <div class="container">
+                <h2 class="section-title">Compétences</h2>
+                <div class="skills-grid">
+                    
+                    <!-- Catégorie 1 : Systèmes d'exploitation -->
+                    <div class="skill-category">
+                        <h3>Systèmes d'exploitation</h3>
+                        <div class="skill-box-container">
+                            <div class="skill-box">
+                                <img src="img/Logo_Windows_11.webp" alt="Windows 11">
+                                <span>Windows 11</span>
+                            </div>
+                            <div class="skill-box">
+                                <img src="img/windows-server-2.png" alt="Windows Server">
+                                <span>Windows Server</span>
+                            </div>
+                            <div class="skill-box">
+                                <img src="img/debian-linux.png" alt="Debian">
+                                <span>Debian</span>
+                            </div>
+                            <div class="skill-box">
+                                <img src="img/Ubuntu-Logo_ohne_Schriftzug.svg.png" alt="Ubuntu">
+                                <span>Ubuntu</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Catégorie 2 : Réseaux & infrastructures -->
+                    <div class="skill-category">
+                        <h3>Réseaux & infrastructures</h3>
+                        <div class="skill-box-container">
+                            <div class="skill-box">
+                                <img src="img/Cisco_logo.svg.png" alt="Cisco IOS">
+                                <span>Cisco IOS</span>
+                            </div>
+                            <div class="skill-box">
+                                <img src="img/azure-active-directory-logo-png_seeklogo-432025.png" alt="Active Directory">
+                                <span>Active Directory</span>
+                            </div>
+                            <div class="skill-box">
+                                <img src="img/1869834.png" alt="Services d'impression">
+                                <span>Services d'impression</span>
+                            </div>
+                            <div class="skill-box">
+                                <img src="img/4668818.png" alt="Sauvegarde">
+                                <span>Sauvegarde</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Catégorie 3 : Services & administration -->
+                    <div class="skill-category">
+                        <h3>Services & administration</h3>
+                        <div class="skill-box-container">
+                            <div class="skill-box">
+                                <img src="img/apache-logo.png" alt="Apache HTTP Server">
+                                <span>Apache HTTP Server</span>
+                            </div>
+                            <div class="skill-box">
+                                <img src="img/mariadb.webp" alt="MariaDB">
+                                <span>MariaDB</span>
+                            </div>
+                            <div class="skill-box">
+                                <img src="img/G-GLPI.png" alt="GLPI">
+                                <span>GLPI</span>
+                            </div>
+                            <div class="skill-box">
+                                <img src="img/e5b7d4_ad393bb356954725b5ba9fa6a0454968~mv2.png" alt="OCS Inventory">
+                                <span>OCS Inventory</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Catégorie 4 : Outils & virtualisation -->
+                    <div class="skill-category">
+                        <h3>Outils & virtualisation</h3>
+                        <div class="skill-box-container">
+                            <div class="skill-box">
+                                <img src="img/virtualbox.png" alt="VirtualBox">
+                                <span>VirtualBox</span>
+                            </div>
+                            <div class="skill-box">
+                                <img src="img/PowerShell_5.0_icon.png" alt="Powershell">
+                                <span>Powershell</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJETS -->
+        <section id="projets" class="bg-alt">
+            <div class="container">
+                <h2 class="section-title">Projets</h2>
+
+                <div class="project-section">
+                    <h3>Projets scolaires</h3>
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <div class="project-img">
+                                <img src="img/ocs inventory.png" alt="Illustration Gérer le patrimoine informatique">
+                            </div>
+                            <div class="project-content">
+                                <div class="project-date">2026 - réalisé</div>
+                                <h4>Gérer le patrimoine informatique</h4>
+                                <p><strong>Inventaire matériel et logiciel</strong> d'une organisation. Création de <strong>groupes statiques et dynamiques</strong>. Configuration de <strong>partage de fichiers</strong> et de <strong>niveaux d'habilitation</strong>.</p>
+                                <div class="tags">
+                                    <span class="tag">OCS Inventory</span>
+                                    <span class="tag">VirtualBox</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-img">
+                                <img src="img/d767ac450f90-visuel-cybersecurite.jpg" alt="Illustration Gérer les incidents et demandes d'évolution" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                <span style="display:none; color: #888; font-size: 0.9rem;">[Image d'illustration]</span>
+                            </div>
+                            <div class="project-content">
+                                <div class="project-date">2026 - en cours</div>
+                                <h4>Gérer les incidents et demandes d'évolution</h4>
+                                <p>Création de <strong>VM (Windows 11 et Ubuntu Desktop)</strong>. Ajout d'un nouvel ordinateur dans <strong>Active Directory</strong> et dans un réseau serveur. Prise en charge de <strong>pannes matérielles, logicielles</strong> et d'accès à un service du réseau. Création de comptes et groupes d'utilisateurs. Ajout d'<strong>autorisations de sécurité NTFS</strong>. Évolution de l'architecture d'un réseau.</p>
+                                <div class="tags">
+                                    <span class="tag">Windows 11</span>
+                                    <span class="tag">Ubuntu</span>
+                                    <span class="tag">Active Directory</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-img">
+                                <img src="img/visuels_site_client.png" alt="Illustration Mettre à disposition un service informatique" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                <span style="display:none; color: #888; font-size: 0.9rem;">[Image d'illustration]</span>
+                            </div>
+                            <div class="project-content">
+                                <div class="project-date">2026 - à venir</div>
+                                <h4>Mettre à disposition un service informatique</h4>
+                                <p>À la demande d'un développeur : installation d'un <strong>environnement de développement Web</strong> complet et d'un <strong>environnement de tests</strong> pour une application Web.</p>
+                                <div class="tags">
+                                    <span class="tag">Debian</span>
+                                    <span class="tag">VirtualBox</span>
+                                    <span class="tag">Apache</span>
+                                    <span class="tag">MariaDB</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-section">
+                    <h3>Projets professionnels</h3>
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <div class="project-img">
+                                <img src="img/Twitter-LKN-1200x630-1.png" alt="Illustration Gestion du parc d'une médiathèque">
+                            </div>
+                            <div class="project-content">
+                                <div class="project-date">2027 - à venir</div>
+                                <h4>Gestion du parc d'une médiathèque</h4>
+                                <p>[Description à ajouter plus tard...]</p>
+                                <div class="tags">
+                                    <span class="tag">???</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-img">
+                                <img src="img/efrei-paris-atelier-informatique-etudes-tech-1536x1024.jpg" alt="Illustration Projet de stage" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                <span style="display:none; color: #888; font-size: 0.9rem;">[Image d'illustration]</span>
+                            </div>
+                            <div class="project-content">
+                                <div class="project-date">2027 - à venir</div>
+                                <h4>Projet de stage</h4>
+                                <p>Projet qui sera réalisé durant le stage de première année de BTS SIO.</p>
+                                <div class="tags">
+                                    <span class="tag">À définir</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact">
+            <div class="container">
+                <h2 class="section-title">Contact</h2>
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <div class="contact-card">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>Livinhac-le-Haut (Aveyron)</span>
+                        </div>
+                        <div class="contact-card">
+                            <i class="fa-solid fa-phone"></i>
+                            <span>06 03 88 08 97</span>
+                        </div>
+                        <div class="contact-card">
+                            <i class="fa-solid fa-envelope"></i>
+                            <a href="mailto:fabiendaviperso@gmail.com">fabiendaviperso@gmail.com</a>
+                        </div>
+
+                        <div class="contact-card">
+                            <i class="fa-brands fa-linkedin"></i>
+                            <a href="https://www.linkedin.com/in/fabien-davi-300349437" target="_blank">linkedin.com/in/fabien-davi</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-form">
+                        <form action="https://formspree.io/f/xqpkyrqk" method="POST">
+                            <div class="form-group">
+                                <label for="nom">Nom</label>
+                                <input type="text" id="nom" name="nom" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">E-mail</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="objet">Objet</label>
+                                <input type="text" id="objet" name="objet" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn-submit">Envoyer</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FENÊTRE MODALE (POP-UP) LISST -->
+    <div id="modal-lisst" class="modal-overlay" onclick="closeModalOutside(event, 'modal-lisst')">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Détails du projet NEMO (LISST)</h3>
+                <button class="modal-close" onclick="closeModal('modal-lisst')"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <p>Préparation du projet de recherche NEMO sur le vote des classes populaires en Occitanie : nettoyage et croisement de données sociodémographiques et électorales (Aude, Ariège, Gard, Tarn) sous R, réalisation de cartographies et de monographies Quarto, et création d’un script automatisé produisant les indicateurs clés de n’importe quelle commune à partir de son code INSEE.</p>
+                <div class="modal-images">
+                    <img src="img/Capture d'écran 2026-11-17 112513.jpg" alt="Aperçu des cartographies électorales (Quarto)" onerror="this.style.display='none'">
+                    <img src="img/Capture d'écran 2026-11-17 113159.png" alt="Aperçu du script R et interface RStudio" onerror="this.style.display='none'">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS JAVASCRIPT -->
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+            document.body.classList.add('modal-open'); // Bloque le défilement de l'arrière-plan
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+            document.body.classList.remove('modal-open'); // Rétablit le défilement
+        }
+
+        function closeModalOutside(event, modalId) {
+            // Ferme la modale si l'utilisateur clique en dehors du contenu (sur l'overlay sombre)
+            if (event.target.id === modalId) {
+                closeModal(modalId);
+            }
+        }
+    </script>
+</body>
+</html>
