@@ -586,12 +586,16 @@
         }
         .modal-body {
             padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
         }
-        .modal-body p {
-            font-size: 0.9rem;
+        .modal-description {
+            font-size: 0.85rem; /* Texte plus petit */
             color: #555;
             line-height: 1.6;
-            margin-bottom: 1.5rem;
+            text-align: justify;
+            margin: 0;
         }
         .modal-images {
             display: flex;
@@ -601,10 +605,17 @@
         .modal-images img {
             width: 100%;
             max-width: 48%;
-            border-radius: 5px;
+            border-radius: 8px;
             border: 1px solid #ddd;
             object-fit: cover;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation fluide */
+        }
+        .modal-images img:hover {
+            transform: scale(1.05); /* Effet de zoom */
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* Ombre accentuée */
+            z-index: 2;
+            position: relative;
         }
         body.modal-open {
             overflow: hidden;
@@ -1105,11 +1116,14 @@
                 <button class="modal-close" onclick="closeModal('modal-lisst')"><i class="fa-solid fa-xmark"></i></button>
             </div>
             <div class="modal-body">
-                <p>Préparation du projet de recherche NEMO sur le vote des classes populaires en Occitanie : nettoyage et croisement de données sociodémographiques et électorales (Aude, Ariège, Gard, Tarn) sous R, réalisation de cartographies et de monographies Quarto, et création d’un script automatisé produisant les indicateurs clés de n’importe quelle commune à partir de son code INSEE.</p>
+                <!-- Les images sont passées au-dessus du texte -->
                 <div class="modal-images">
-                    <img src="img/Capture d'écran 2026-11-17 112513.png" alt="Aperçu des cartographies électorales (Quarto)" onerror="this.style.display='none'">
-                    <img src="img/Capture d'écran 2026-11-17 113159.png" alt="Aperçu du script R et interface RStudio" onerror="this.style.display='none'">
+                    <!-- ATTENTION : Renomme bien tes fichiers dans ton dossier img pour que cela corresponde -->
+                    <img src="img/carto.jpg" alt="Aperçu des cartographies électorales (Quarto)" onerror="this.style.display='none'">
+                    <img src="img/script.png" alt="Aperçu du script R et interface RStudio" onerror="this.style.display='none'">
                 </div>
+                <!-- Le texte est passé en dessous avec la nouvelle classe -->
+                <p class="modal-description">Préparation du projet de recherche NEMO sur le vote des classes populaires en Occitanie : nettoyage et croisement de données sociodémographiques et électorales (Aude, Ariège, Gard, Tarn) sous R, réalisation de cartographies et de monographies Quarto, et création d’un script automatisé produisant les indicateurs clés de n’importe quelle commune à partir de son code INSEE.</p>
             </div>
         </div>
     </div>
