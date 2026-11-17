@@ -611,11 +611,60 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.08);
             transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation fluide */
         }
+        .modal-images img {
+            width: 100%;
+            max-width: 48%;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            object-fit: cover;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer; /* Affiche une petite main pour indiquer que c'est cliquable */
+        }
         .modal-images img:hover {
-            transform: scale(1.05); /* Effet de zoom */
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* Ombre accentuée */
-            z-index: 2;
-            position: relative;
+            transform: translateY(-3px); /* Petit soulèvement très léger */
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+        }
+
+        /* --- STYLES LIGHTBOX (ZOOM IMAGE) --- */
+        .lightbox-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85); /* Fond très sombre */
+            z-index: 2000; /* Doit être au-dessus de la modale (qui est à 1000) */
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .lightbox-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+        .lightbox-img {
+            max-width: 90%;
+            max-height: 90vh;
+            border-radius: 5px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+            object-fit: contain;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .lightbox-close:hover {
+            color: var(--accent-color);
         }
         body.modal-open {
             overflow: hidden;
@@ -1116,16 +1165,20 @@
                 <button class="modal-close" onclick="closeModal('modal-lisst')"><i class="fa-solid fa-xmark"></i></button>
             </div>
             <div class="modal-body">
-                <!-- Les images sont passées au-dessus du texte -->
                 <div class="modal-images">
-                    <!-- ATTENTION : Renomme bien tes fichiers dans ton dossier img pour que cela corresponde -->
-                    <img src="img/carto.png" alt="Aperçu des cartographies électorales (Quarto)" onerror="this.style.display='none'">
-                    <img src="img/script.png" alt="Aperçu du script R et interface RStudio" onerror="this.style.display='none'">
+                    <!-- Ajout du onclick ici -->
+                    <img src="img/carto.jpg" alt="Aperçu des cartographies électorales (Quarto)" onerror="this.style.display='none'" onclick="openLightbox(this.src)">
+                    <img src="img/script.png" alt="Aperçu du script R et interface RStudio" onerror="this.style.display='none'" onclick="openLightbox(this.src)">
                 </div>
-                <!-- Le texte est passé en dessous avec la nouvelle classe -->
                 <p class="modal-description">Préparation du projet de recherche NEMO sur le vote des classes populaires en Occitanie : nettoyage et croisement de données sociodémographiques et électorales (Aude, Ariège, Gard, Tarn) sous R, réalisation de cartographies et de monographies Quarto, et création d’un script automatisé produisant les indicateurs clés de n’importe quelle commune à partir de son code INSEE.</p>
             </div>
         </div>
+    </div>
+
+    <!-- LIGHTBOX (ZOOM IMAGE) -->
+    <div id="lightbox" class="lightbox-overlay" onclick="closeLightbox(event)">
+        <button class="lightbox-close"><i class="fa-solid fa-xmark"></i></button>
+        <img id="lightbox-image" class="lightbox-img" src="" alt="Image agrandie">
     </div>
 
     <!-- SCRIPTS JAVASCRIPT -->
@@ -1144,6 +1197,22 @@
             // Ferme la modale si l'utilisateur clique en dehors du contenu (sur l'overlay sombre)
             if (event.target.id === modalId) {
                 closeModal(modalId);
+            }
+        }
+    // --- FONCTIONS LIGHTBOX ---
+        function openLightbox(imageSrc) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-image');
+            
+            // On donne à l'image du zoom la même source que l'image cliquée
+            lightboxImg.src = imageSrc; 
+            lightbox.classList.add('active');
+        }
+
+        function closeLightbox(event) {
+            // Ferme la lightbox si on clique sur le fond sombre ou sur la croix
+            if (event.target.id === 'lightbox' || event.target.closest('.lightbox-close')) {
+                document.getElementById('lightbox').classList.remove('active');
             }
         }
     </script>
